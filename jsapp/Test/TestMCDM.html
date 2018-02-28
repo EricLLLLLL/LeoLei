@@ -1,0 +1,188 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Cdm = channel.objects.MCDM;
+						// 打开 成功失败 事件
+						Cdm.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Cdm.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Cdm.StartExchangeCompleted.connect(function () {
+							alert("StartExchangeCompleted!");
+						});
+						Cdm.StartExchangeFailed.connect(function () {
+							alert("StartExchangeFailed!");
+						});
+
+						Cdm.EndExchangeCompleted.connect(function () {
+							alert("EndExchangeCompleted!");
+						});
+						Cdm.EndExchangeFailed.connect(function () {
+							alert("EndExchangeFailed!");
+						});
+
+						Cdm.MixFailed.connect(function () {
+							alert("MixFailed!");
+						});
+						Cdm.MixComplete.connect(function () {
+							alert("MixComplete!");
+						});
+
+						Cdm.ResetFailed.connect(function () {
+							alert("ResetFailed!");
+						});
+
+						Cdm.CashDispenseFailed.connect(function () {
+							alert("CashDispenseFailed!");
+						});
+
+						Cdm.CashPresented.connect(function () {
+							alert("CashPresented!");
+						});
+
+						Cdm.CashTaken.connect(function () {
+							alert("Cash Taken!");
+						});
+
+						Cdm.OutPositionNotEmpty.connect(function () {
+							alert("OutPositionNotEmpty!");
+						});
+
+						Cdm.SubDispenseOk.connect(function () {
+							alert("SubDispenseOk!");
+						});
+
+						Cdm.ResetComplete.connect(function () {
+							alert("ResetComplete!");
+						});
+
+						Cdm.NotDispensable.connect(function () {
+							alert("NotDispensable!");
+						});
+
+						Cdm.CashDispensed.connect(function () {
+							alert("CashDispensed!");
+						});
+
+						Cdm.ConnectionOpened.connect(function () {
+							alert("ConnectionOpened!");
+						});
+
+
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Cdm.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function GetServiceName() {
+			return Cdm.ServiceName;
+		}
+		//  独有的方法
+		function abc() {
+			var tmp = new Array(1, 0, 0, 0, 0, 0, 0);
+			return Cdm.Dispense(0, tmp, 'CNY', '0');
+		}
+
+		function SetServiceName() {
+			return Cdm.ServiceName = 'Cdm.';
+		}
+
+		function SetUnitCountSync() {
+			var UnitCount = new Array();
+			UnitCount[0] = '1A:100';
+			UnitCount[1] = '2A:200';
+			UnitCount[2] = '3A:300';
+			UnitCount[3] = '4A:0';
+			UnitCount[4] = '5A:500';
+			return Cdm.SetUnitCountSync(UnitCount);
+		}
+
+		function SetUnitValueSync() {
+			var UnitValue = new Array();
+			UnitValue[0] = '1A:5';
+			UnitValue[1] = '2A:10';
+			UnitValue[2] = '3A:100';
+			UnitValue[3] = '4A:0';
+			UnitValue[4] = '5A:100';
+			return Cdm.SetUnitValueSync(UnitValue);
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MCdm</h3>
+
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<!-- <input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<input type="button" id="btn4" value="GetServiceName" onClick="alert(Cdm.ServiceName)"></input> -->
+	<br/>
+	<br/>
+	<input type="button" id="btn13" value="SetServiceName" onClick="alert(SetServiceName())"></input>
+	<input type="button" id="btn13" value="Dispense" onClick="alert(abc())"></input>
+	<input type="button" id="btn12" value="Mix" onClick="alert(Cdm.Mix(400,'CNY','1'))"></input>
+	<input type="button" id="btn1" value="MixAndDispense" onClick="alert(Cdm.MixAndDispense(1000,'CNY','1'))"></input>
+	<input type="button" id="btn2" value="Present" onClick="alert(Cdm.Present(20000))"></input>
+	<input type="button" id="btn3" value="Reset" onClick="alert(Cdm.Reset('RETRACT',4,200000))"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn6" value="Open" onClick="alert(Cdm.OpenConnection())"></input>
+	<input type="button" id="btn7" value="Close" onClick="alert(Cdm.CloseConnection())"></input>
+	<input type="button" id="btn8" value="StartExchange" onClick="alert(Cdm.StartExchange())"></input>
+	<input type="button" id="btn9" value="EndExchange" onClick="alert(Cdm.EndExchange())"></input>
+	<input type="button" id="btn15" value="SetUnitCountSync" onClick="alert(SetUnitCountSync())"></input>
+	<input type="button" id="btn16" value="SetUnitValueSync" onClick="alert(SetUnitValueSync())"></input>
+	<input type="button" id="btn17" value="SetUnitTypeSync" onClick="alert(SetUnitTypeSync())"></input>
+	<input type="button" id="btn11" value="GetCount" onClick="alert(Cdm.PUCurrentCount.toArray())"></input>
+	<input type="button" id="btn11" value="GetRejectCount" onClick="alert(Cdm.PURejectCount.toArray())"></input>
+	<input type="button" id="btn11" value="Type" onClick="alert(Cdm.CUType.toArray())"></input>
+	<input type="button" id="btn11" value="CUNoteValue" onClick="alert(Cdm.CUNoteValue.toArray())"></input>
+	<input type="button" id="btn12" value="GetOutput" onClick="alert(Cdm.StOutputStatus)"></input>
+	<input type="button" id="btn12" value="CUStatus" onClick="alert(Cdm.CUStatus.toArray())"></input>
+	<input type="button" id="btn12" value="RemainCount" onClick="alert(Cdm.RemainCount)"></input>
+	<p>--</p>
+	<input type="button" id="btn8" value="OpenShutter" onClick="alert(Cdm.OpenShutter('1000'))"></input>
+	<input type="button" id="btn9" value="CloseShutter" onClick="alert(Cdm.CloseShutter('1000'))"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

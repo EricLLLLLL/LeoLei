@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="12/8/2015 1:47:47 PM">
+  <div id="PageTop">
+    <div id="ShowTime">
+    </div>
+  </div>
+  <div id="PageSubject" class="MiddleDiv" style="width:716px; height:586px;margin-top:15px;margin-left:150px">
+    <br/>
+    <div id="DivTellerNoSelect">
+      <div id="TipDiv">
+        交易审核
+      </div>
+        <div id="DivTellers" style="font-size:18px;margin-left:110px;padding:0 0;margin-top:20px;color:#000;">
+        </div>
+
+      <!--<div id="NoTellerTip" style="color:red;font-size:18px;text-align:center;display:none;">无柜员号信息，请输入柜员号!</div>-->
+    </div>
+    <div id="DivFingerTip" style="width:716px;text-align:center;margin-top:50px">
+      <p id="err-tip" style="color:red;font-size:18px;">请按指纹进行审核</p>
+    </div>
+    <!--<div class="error_tip" id="err-tip" style="width:690px;text-align:center;position:absolute;top:80px;display:none">授权验证失败！请点击“重新审核”按钮进行重新审核</div>-->
+    <div id="DivCheckResult" style="text-align:left;margin-left:250px;margin-top:50px">
+      <label  style="color:#000;font-size:18px;">户名：</label><label id="tName" style="color:red;font-size:18px;"></label>
+      <br/>
+      <br/>
+      <br/>
+      <p id="CheckIdRes" style="display:none;">
+        <label  style="color:#000;font-size:18px;">客户当日已取款金额：</label><label id="Check-tip" style="color:red;font-size:18px;"></label><label  style="color:#000;font-size:18px;">元</label>
+      </p>
+      <p id="CheckNameRes" style="display:none">
+		<label id="ResName" style="color:red;font-size:18px;"></label>
+      </p>
+    </div>
+
+  </div>
+  <div id="PageButton">
+    <a href='#' class='Left_3' id='ReAuthor'>重新审核</a>
+    <a href="#" class="Left_4" id="Left_4">退出</a>
+    <a href="#" class="Right_4" id="Right_4" style="display:none">确认</a>
+    <!--tmp by art -->
+  </div>
+  <div id="KeysDiv" style="position:absolute;bottom:0px;left:100px;z-index: 100;"></div>
+</div>

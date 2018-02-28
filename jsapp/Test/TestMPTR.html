@@ -1,0 +1,162 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Ptr = channel.objects.MRPT;
+						// 打开 成功失败 事件
+						Ptr.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Ptr.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Ptr.PrintComplete.connect(function () {
+							alert("PrintComplete!");
+						});
+
+						Ptr.PrintFailed.connect(function () {
+							alert("PrintFailed!");
+						});
+
+						Ptr.ControlComplete.connect(function () {
+							alert("ControlComplete!");
+						});
+
+						Ptr.ControlFailed.connect(function () {
+							alert("ControlFailed!");
+						});
+
+						Ptr.PrintTaken.connect(function () {
+							alert("PrintTaken!");
+						});
+
+						// <!--设备 Open & Close 事件-->
+						Ptr.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Ptr.OpenFailed.connect(function () {
+							alert("OpenFailed!");
+						});
+
+						Ptr.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Ptr.CloseFailed.connect(function () {
+							alert("CloseFailed");
+						});
+
+						Ptr.ResetComplete.connect(function () {
+							alert("ResetComplete");
+						});
+
+						Ptr.ResetFailed.connect(function () {
+							alert("ResetFailed");
+						});
+
+
+						// <!--错误事件-->
+						Ptr.DeviceError.connect(function () {
+							alert("DeviceError!");
+						});
+
+						Ptr.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+/* 		function OpenConnection() {
+			Ptr.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		} */
+		//  独有的方法
+		function SetServiceName() {
+			Ptr.ServiceName = "HMMSI";
+			alert("HMMSI");
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MRPT</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<!-- <input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input> -->
+	<br/>
+	<input type="button" id="btn1" value="SetServiceName" onClick="SetServiceName()"></input>
+	<input type="button" id="btn1" value="OpenConnection" onClick="alert(Ptr.OpenConnection())"></input>
+	<input type="button" id="btn2" value="CloseConnection" onClick="alert(Ptr.CloseConnection())"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+
+	<input type="button" id="btn2" value="Print(ReceiptTotalSubTotal_Print_szABC)" onClick="alert(Ptr.Print('ReceiptTotalSubTotal_Print_szABC','',30000))"></input>
+	<input type="button" id="btn2" value="Print(ReceiptBillLoadingCountSet_szABC)" onClick="alert(Ptr.Print('ReceiptBillLoadingCountSet_szABC','',30000))"></input>
+	<input type="button" id="btn2" value="Print(ReceiptCash_Print_szABC)" onClick="alert(Ptr.Print('ReceiptCash_Print_szABC','',30000))"></input>
+	<input type="button" id="btn2" value="Print(ExChangeMoney_Print_szABC)" onClick="alert(Ptr.Print('ExChangeMoney_Print_szABC','',30000))"></input>
+	<input type="button" id="btn4" value="PrintFile" onClick="alert(Ptr.PrintFile('F:\\mrpt_test\\Money.txt', 0, 1))"></input>
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn5" value="ControlMedia=‘EJECT,CUT’" onClick="alert(Ptr.ControlMedia('CUT,EJECT',30000))"></input>
+	<input type="button" id="btn5" value="Reset" onClick="alert(Ptr.Reset('EJECT', 0))"></input>
+
+
+	<br/>
+	<br/>
+	<br/>
+	<!--Form操作-->
+	<input type="button" id="btn6" value="GetFormNamesSync" onClick="alert((Ptr.GetFormNamesSync()).toArray())"></input>
+	<input type="button" id="btn7" value="UpdateFormInfoSync" onClick="alert(Ptr.UpdateFormInfoSync('RPTCash'))"></input>
+	<input type="button" id="btn7" value="CharSupport" onClick="alert((Ptr.FormFieldsFormat).toArray())"></input>
+	<input type="button" id="btn7" value="GetFormFields" onClick="alert((Ptr.FormFields).toArray())"></input>
+
+	<br/>
+	<br/>
+	<br/>
+	<!--media操作-->
+	<input type="button" id="btn8" value="GetMediaNamesSync" onClick="alert((Ptr.GetMediaNamesSync()).toArray())"></input>
+	<input type="button" id="btn9" value="UpdateMediaInfoSync" onClick="alert((Ptr.UpdateMediaInfoSync()).toArray())"></input>
+	<p>--</p>
+	<input type="button" id="btn2" value="StPaperStatus" onClick="alert(Ptr.StPaperStatus())"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+
+</body>
+
+</html>

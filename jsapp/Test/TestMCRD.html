@@ -1,0 +1,211 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Crd = channel.objects.MIDC;
+						// 打开 成功失败 事件
+						Crd.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Crd.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Crd.CardInserted.connect(function () {
+							alert("Card Inserted!");
+						});
+
+						Crd.CardTaken.connect(function () {
+							alert("Card Moved!");
+						});
+
+						Crd.CardCaptured.connect(function () {
+							alert("Card Retained!");
+						});
+						Crd.CardCaptureFailed.connect(function () {
+							alert("CardCaptureFailed!");
+						});
+
+						Crd.CardRead.connect(function () {
+							alert("Card Read Track Finish!");
+						});
+
+						Crd.CardEjected.connect(function () {
+							alert("Card Ejected!");
+						});
+						Crd.CardEjectFailed.connect(function () {
+							alert("CardEjectFailed!");
+						});
+
+						Crd.CardAcceptCancelled.connect(function () {
+							alert("Card Accept Cancelled!");
+						});
+
+						Crd.CardAccepted.connect(function () {
+							alert("Card Accepted!");
+						});
+
+						Crd.ChipDataReceived(token, data).connect(function () {
+							alert("Chip Data Received!");
+						});
+
+						Crd.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Crd.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Crd.ResetComplete.connect(function () {
+							alert("Reset Complete!");
+						});
+						Crd.ResetFailed.connect(function () {
+							alert("ResetFailed!");
+						});
+						Crd.ChipPowerComplete.connect(function () {
+							alert("Chip Power Complete!");
+						});
+						Crd.ChipPowerFailed.connect(function () {
+							alert("ChipPowerFailed!");
+						});
+
+						Crd.StatusChanged(a, b, c).connect(function () {
+							alert(c);
+						});
+
+						Crd.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Crd.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Crd.GetICInfoCompleted.connect(function () {
+							alert("GetICInfoCompleted");
+						});
+						Crd.GetICInfoFailed.connect(function () {
+							alert("GetICInfoFailed");
+						});
+
+						Crd.ReadIcTLVCompleted(info).connect(function () {
+							alert("ReadIcTLVCompleted");
+						});
+						Crd.ReadIcTLVFailed.connect(function () {
+							alert("ReadIcTLVFailed");
+						});
+
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Crd.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+		//  独有的方法
+		function SetServiceName() {
+			return Crd.ServiceName = 'CertReader';
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MIDR</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<br/>
+	<input type="button" id="btn13" value="SetServiceName" onClick="alert(SetServiceName())"></input>
+	<input type="button" id="btn1" value="OpenConnection" onClick="alert(Crd.OpenConnection())"></input>
+	<input type="button" id="btn2" value="AcceptAndReadTracks" onClick="alert(Crd.AcceptAndReadTracks('2,3,CHIP', 20000))"></input>
+	<input type="button" id="btn3" value="Eject" onClick="alert(Crd.Eject(20000))"></input>
+	<input type="button" id="btn4" value="Retain" onClick="alert(Crd.Capture(20000))"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn5" value="Get Track1 Data" onClick="alert(Crd.Track1)"></input>
+	<input type="button" id="btn6" value="Get Track2 Data" onClick="alert(Crd.Track2)"></input>
+	<input type="button" id="btn7" value="Get Track3 Data" onClick="alert(Crd.Track3)"></input>
+	<input type="button" id="btn7" value="Get ART" onClick="alert(Crd.AnswerToReset)"></input>
+	<input type="button" id="btn7" value="Get Device Status" onClick="alert(Crd.StDetailedDeviceStatus)"></input>
+	<input type="button" id="btn7" value="Get Media Status" onClick="alert(Crd.StMediaStatus)"></input>
+	<input type="button" id="btn7" value="Get Bin Status" onClick="alert(Crd.StBinStatus)"></input>
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn8" value="Cancel Accept" onClick="alert(Crd.CancelAccept())"></input>
+	<input type="button" id="btn9" value="ResetBinCountSync" onClick="alert(Crd.ResetBinCountSync)"></input>
+	<input type="button" id="btn10" value="ReadTracks" onClick="alert(Crd.ReadTracks('1,2,3,CHIP'))"></input>
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn11" value="AcceptAndChipInitialise" onClick="alert(Crd.AcceptAndChipInitialise('123',20000))"></input>
+	<input type="button" id="btn12" value="ChipSend" onClick="alert(Crd.ChipSend('123',0,'00A404000E315041592E5359532E4444463031',20000))"></input>
+	<input type="button" id="btn13" value="ChipPower" onClick="alert(Crd.ChipPower('COLDRESET'))"></input>
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn14" value="Reset(Eject)" onClick="alert(Crd.Reset('EJECT',20000))"></input>
+	<input type="button" id="btn15" value="Reset(Retain)" onClick="alert(Crd.Reset('RETRACT',20000))"></input>
+	<input type="button" id="btn16" value="Reset(NoAction)" onClick="alert(Crd.Reset('NOACTION',20000))"></input>
+
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn13" value="ChipPowerOFF" onClick="alert(Crd.ChipPower('POWEROFF'))"></input>
+	<input type="button" id="btn13" value="PBOCGetICInfo" onClick="alert(Crd.PBOCGetICInfo(30000))"></input>
+	<input type="button" id="btn13" value="PBOCReadIcTLV" onClick="alert(Crd.PBOCReadIcTLV(30000))"></input>
+
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn7" value="Get CardNumber" onClick="alert(Crd.CardNumber)"></input>
+	<input type="button" id="btn7" value="Get CardSerial" onClick="alert(Crd.CardSerial)"></input>
+	<input type="button" id="btn7" value="Get StartTime" onClick="alert(Crd.StartTime)"></input>
+	<input type="button" id="btn7" value="Get EndTime" onClick="alert(Crd.EndTime)"></input>
+
+	<input type="button" id="btn7" value="Get Name" onClick="alert(Crd.Name)"></input>
+	<input type="button" id="btn7" value="Get NameExpend" onClick="alert(Crd.NameExpend)"></input>
+	<input type="button" id="btn7" value="Get IDNumber" onClick="alert(Crd.IDNumber)"></input>
+	<input type="button" id="btn7" value="Get IType" onClick="alert(Crd.IType)"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

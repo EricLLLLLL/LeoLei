@@ -1,0 +1,225 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Cim = channel.objects.MCIM;
+						// 打开 成功失败 事件
+						Cim.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Cim.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+
+						Cim.AcceptCashPrepareFailed.connect(function () {
+							alert("AcceptCashPrepareFailed!");
+						});
+						Cim.AcceptCashPrepared.connect(function () {
+							alert("AcceptCashPrepared!");
+						});
+
+						Cim.CashAccepted.connect(function () {
+							alert("Cash Accept!");
+						});
+						Cim.CashRefused.connect(function () {
+							alert("Cash Refuse!");
+						});
+
+						Cim.CashAcceptCancelled.connect(function () {
+							alert("Cancell Cash Accept!");
+						});
+
+						Cim.CashInseted.connect(function () {
+							alert("Cash Insete!");
+						});
+
+						Cim.EscrowedCashStored.connect(function () {
+							alert("EscrowedCashStored!");
+						});
+						Cim.EscrowedCashStoreFailed.connect(function () {
+							alert("EscrowedCashStoreFailed!");
+						});
+						Cim.EscrowedCashEjected.connect(function () {
+							alert("EscrowedCashEjected!");
+						});
+						Cim.EscrowedCashEjectFailed.connect(function () {
+							alert("EscrowedCashEjectFailed!");
+						});
+						Cim.RefusedCashEjected.connect(function () {
+							alert("RefusedCashEjected!");
+						});
+
+
+						Cim.ResetComplete.connect(function () {
+							alert("Reset Complete!");
+						});
+						Cim.ResetFailed.connect(function () {
+							alert("ResetFailed!");
+						});
+
+						Cim.CashTaken.connect(function () {
+							alert("Cash Taken!");
+						});
+
+						Cim.AcceptCashAlreadyActive.connect(function () {
+							alert("Accept Cash Already Active!");
+						});
+
+						Cim.StartExchangeCompleted.connect(function () {
+							alert("StartExchangeCompleted!");
+						});
+						Cim.StartExchangeFailed.connect(function () {
+							alert("StartExchangeFailed!");
+						});
+						Cim.EndExchangeCompleted.connect(function () {
+							alert("EndExchangeCompleted!");
+						});
+						Cim.EndExchangeFailed.connect(function () {
+							alert("EndExchangeFailed!");
+						});
+						Cim.ShutterOpened.connect(function () {
+							alert("Shutter Opene!");
+						});
+
+						Cim.ShutterClosed.connect(function () {
+							alert("Shutter Close!");
+						});
+
+						Cim.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Cim.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Cim.SafeDoorOpened.connect(function () {
+							alert("SafeDoorOpened");
+						});
+						Cim.SafeDoorClosed.connect(function () {
+							alert("SafeDoorClosed");
+						});
+						Cim.SetSupportValueCompleted.connect(function () {
+							alert("SetSupportValueCompleted!");
+						});
+						Cim.SetSupportValueFailed.connect(function () {
+							alert("SetSupportValueFailed!");
+						});
+						Cim.ConnectionOpened.connect(function () {
+							alert("ConnectionOpened!");
+						});
+						Cim.OpenFailed.connect(function () {
+							alert("OpenFailed!");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Cim.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+		//  独有的方法
+		function SetServiceName() {
+			return Cim.ServiceName = 'CIM';
+		}
+
+		function SetUnitCountSync() {
+			var UnitCount = new Array();
+			UnitCount[0] = '1A:1';
+			UnitCount[1] = '2A:2';
+			UnitCount[2] = '3A:3';
+			UnitCount[3] = '4A:0';
+			UnitCount[4] = '5A:5';
+			return Cim.SetUnitCountSync(UnitCount);
+		}
+
+		function SetUnitValueSync() {
+			var UnitValue = new Array();
+			UnitValue[0] = '1A:5';
+			UnitValue[1] = '2A:10';
+			UnitValue[2] = '3A:100';
+			UnitValue[3] = '4A:0';
+			UnitValue[4] = '5A:100';
+			return Cim.SetUnitValueSync(UnitValue);
+		}
+
+		function SetSupportValue() {
+			var SupportValue = new Array('50', '20');
+			return Cim.SetSupportValue(SupportValue);
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MCim</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<br/>
+	<!-- <input type="button" id="btn12" value="Register" onClick="alert(Cim.RegisterMessage())"></input> -->
+	<input type="button" id="btn13" value="SetServiceName" onClick="alert(SetServiceName())"></input>
+	<input type="button" id="btn1" value="PrepareForAcceptCash" onClick="alert(Cim.PrepareForAcceptCash())"></input>
+	<input type="button" id="btn2" value="AcceptCash" onClick="alert(Cim.AcceptCash(200000))"></input>
+	<input type="button" id="btn3" value="StoreEscrowedCash" onClick="alert(Cim.StoreEscrowedCash(200000))"></input>
+	<input type="button" id="btn4" value="CancelAcceptCash" onClick="alert(Cim.CancelAcceptCash())"></input>
+
+	<br/>
+	<br/>
+	<input type="button" id="btn14" value="StartExchange" onClick="alert(Cim.StartExchange())"></input>
+	<input type="button" id="btn15" value="SetUnitCountSync" onClick="alert(SetUnitCountSync())"></input>
+	<input type="button" id="btn16" value="SetUnitValueSync" onClick="alert(SetUnitValueSync())"></input>
+	<input type="button" id="btn17" value="SetUnitTypeSync" onClick="alert(SetUnitTypeSync())"></input>
+	<input type="button" id="btn18" value="EndExchange" onClick="alert(Cim.EndExchange())"></input>
+	<input type="button" id="btn19" value="SetSupportValue" onClick="alert(SetSupportValue())"></input>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn5" value="Reset" onClick="alert(Cim.Reset('RETRACT',4,200000))"></input>
+	<input type="button" id="btn6" value="Open" onClick="alert(Cim.OpenConnection())"></input>
+	<input type="button" id="btn7" value="Close" onClick="alert(Cim.CloseConnection())"></input>
+	<input type="button" id="btn8" value="OpenShutter" onClick="alert(Cim.OpenShutter())"></input>
+	<input type="button" id="btn9" value="CloseShutter" onClick="alert(Cim.CloseShutter())"></input>
+	<input type="button" id="btn10" value="EjectRefusedCash" onClick="alert(Cim.EjectRefusedCash(200000))"></input>
+	<input type="button" id="btn11" value="GetLastAcceptedAmountSync" onClick="alert(Cim.GetLastAcceptedAmountSync('CNY','VALID'))"></input>
+	<input type="button" id="btn11" value="GetInput" onClick="alert(Cim.StInputStatus)"></input>
+	<input type="button" id="btn11" value="LastAcceptStatus" onClick="alert(Cim.LastAcceptStatus)"></input>
+	<input type="button" id="btn11" value="NumOfRefused" onClick="alert(Cim.NumOfRefused)"></input>
+	<input type="button" id="btn11" value="StAcceptorStatus" onClick="alert(Cim.StAcceptorStatus)"></input>
+	<input type="button" id="btn11" value="StSafeDoorStatus" onClick="alert(Cim.StSafeDoorStatus)"></input>
+	<p>--</p>
+	<input type="button" id="btn12" value="CUStatus" onClick="alert(Cim.CUStatus.toArray())"></input>
+	<input type="button" id="btn9" value="StatisticsData" onClick="alert(Cim.StatisticsData())"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

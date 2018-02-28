@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div class="PageContent" id="PageContent" style="width: 1280px;height: 1024px;position: absolute;padding:0 0;background-image: url('Framework/style/Graphics/backgroundIndex.png');background-size: 100% 100%;">
+    <div id="PageTop">
+        <span id="ShowTimeIndex">2018年2月1日 星期三 15:38</span>
+
+            <span id="geoLocation">北京</span>
+
+        <span class="numberIndex">设备号：             
+            <span id="numberDevice">12345678</span>
+        </span>
+    </div>
+    <div id="PageSubjectIndex">
+        <div id="AdvParentDiv"> </div>
+        <div class="BusinessDiv">
+            <img id="bigTrade" src="Framework/style/Graphics/bigTrade.png" alt="" srcset=""/>
+            <img id="noCardTrade" src="Framework/style/Graphics/noCardTrade.png" alt="" srcset=""/>
+            <img id="cardTrade" src="Framework/style/Graphics/insertIcCard.gif" alt="" srcset=""/>
+        </div>
+        <a href='#' class='Left_SPL' id='SPL1'></a>
+        <a href='#' class='Right_SPL' id='SPL2'></a>
+        <marquee id="moveTilte" direction="left" scrollamount="6" behavior="scroll" width="526px" vspace="10" style="position: absolute;color:red;top:26px;left:330px;font-size:26px;z-index:100;display:none;">
+            本机暂不支持存款交易、取款交易！
+        </marquee>
+        <div id="labTip" style="width:343px;height:192px;border:0;padding:0 0;background-image: url('Framework/style/Graphics/pbErrorTip.png');text-align:center;color:red;font-size:26px;position: absolute;z-index:100;left: 320px;top:300px;display:none"></div>
+        <div id="version" style="position:absolute;top:700px;left:200px;color:#000;font-size:14px;"></div>
+    </div>
+</div>

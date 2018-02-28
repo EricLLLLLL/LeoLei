@@ -1,0 +1,85 @@
+生成文件时发生的警告和错误：
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\Initial\CP_Initial.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AdminLogin\CP_AdminLogin.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\UnitStatus\CP_UnitStatus.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ResetING\CP_ResetING.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedReset\CP_CompletedReset.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CloseServer\CP_CloseServer.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ShutDown\CP_ShutDown.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\RestartING\CP_RestartING.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\GeneralSelect\CP_GeneralSelect.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\MaintainSelect\CP_MaintainSelect.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ExchangeSelect\CP_ExchangeSelect.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedExchange\CP_CompletedExchange.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AddNote\CP_AddNote.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedAddNote\CP_CompletedAddNote.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\NoteRemainQuery\CP_NoteRemainQuery.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\KeyInputPrompt\CP_KeyInputPrompt.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AMasterKey\CP_AMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\BMasterKey\CP_BMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CMasterKey\CP_CMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DownMasterKey\CP_DownMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\EPPInitPrompt\CP_EPPInitPrompt.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\StartEPPInit\CP_StartEPPInit.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedEPPInit\CP_CompletedEPPInit.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedAMasterKey\CP_CompletedAMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedBMasterKey\CP_CompletedBMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedCMasterKey\CP_CompletedCMasterKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\SysInfoSet\CP_SysInfoSet.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\SetCommunicateParam\CP_SetCommunicateParam.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedSetCommunicateParam\CP_CompletedSetCommunicateParam.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\SetCashBox\CP_SetCashBox.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedSetCashBox\CP_CompletedSetCashBox.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\SetAPParam\CP_SetAPParam.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\VersionInfo\CP_VersionInfo.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\PrintVersionInfo\CP_PrintVersionInfo.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedPrintVersionInfo\CP_CompletedPrintVersionInfo.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\SetTransType\CP_SetTransType.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedTransType\CP_CompletedTransType.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\SetTerminal\CP_SetTerminal.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedSetTerminal\CP_CompletedSetTerminal.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DigitalLog\CP_DigitalLog.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DigitalLogInfo\CP_DigitalLogInfo.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\PrintDigitalLog\CP_PrintDigitalLog.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\FingerInput\CP_FingerInput.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\FingerInputSuccess\CP_FingerInputSuccess.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedPrintDigitalLog\CP_CompletedPrintDigitalLog.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ExchangeOrNot\CP_ExchangeOrNot.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AddCashOrNot\CP_AddCashOrNot.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AddCashIng\CP_AddCashIng.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\PrintStatistics\CP_PrintStatistics.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CompletedPrintStatistics\CP_CompletedPrintStatistics.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ExchangeTip\CP_ExchangeTip.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CrownSizeSelectType\CP_CrownSizeSelectType.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CrownSizeShowResult\CP_CrownSizeShowResult.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CrownSizeShowDetailResult\CP_CrownSizeShowDetailResult.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\CashUnitErrorTip\CP_CashUnitErrorTip.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\RebootOrNot\CP_RebootOrNot.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ShutdownOrNot\CP_ShutdownOrNot.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AddAdminInfo\CP_AddAdminInfo.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AddAdminInfoAccess\CP_AddAdminInfoAccess.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DownloadKey\CP_DownloadKey.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DownloadKeyTip\CP_DownloadKeyTip.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\QuotaSet\CP_QuotaSet.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\QuotaSetCompleted\CP_QuotaSetCompleted.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\TellerNoSet\CP_TellerNoSet.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AddTellerInfoAccess\CP_AddTellerInfoAccess.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\PinManager\CP_PinManager.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\InputSafePsw\CP_InputSafePsw.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\AdminSelect\CP_AdminSelect.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ChangePsw\CP_ChangePsw.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DataStatisticsSelect\CP_DataStatisticsSelect.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\DataStatisticsResults\CP_DataStatisticsResults.js
+D:\HMWorkSpace\项目文件\深圳农行\04 开发编码\AP代码\AP\JSCODE\V030001\jsapp\Layout\SPL\ProtectSPL\CP_ProtectSPL.js
+表单[主密钥输入]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[清机加钞]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[应用参数设定]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[电子日志]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[电子日志]中的返回值OK在表单[管理员操作]中没有处理
+表单[系统信息设定]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[指纹录入]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[指纹录入]中的返回值OK在表单[管理员操作]中没有处理
+表单[冠字号查询]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[添加管理员]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[授权管理]中的返回值TimeOut在表单[管理员操作]中没有处理
+表单[数据统计]中的返回值TimeOut在表单[管理员操作]中没有处理

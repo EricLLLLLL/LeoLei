@@ -1,0 +1,134 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Sys = channel.objects.MSYS;
+						// 打开 成功失败 事件
+						Sys.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Sys.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Sys.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Sys.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Sys.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Sys.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Sys.ServiceOpened.connect(function () {
+							alert("ServiceOpened!");
+						});
+
+						Sys.ServiceClosed.connect(function () {
+							alert("ServiceClosed!");
+						});
+
+						Sys.ResetCompleted.connect(function () {
+							alert("ResetCompleted!");
+						});
+
+						Sys.ResetFailed.connect(function () {
+							alert("ResetFailed!");
+						});
+
+						Sys.RefreshStatusComplete.connect(function (Status) {
+							alert("Status:" + Status.toArray());
+						});
+
+						Sys.UploadFileSucceed.connect(function () {
+							alert("UploadFileSucceed!");
+						});
+
+						Sys.UploadFileFailed.connect(function () {
+							alert("UploadFileFailed!");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Sys.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+		//  独有的方法
+	</script>
+</head>
+
+<body>
+	<h3>MSys</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<br/>
+	<input type="button" id="btn1" value="Reset" onClick="Sys.Reset()"></input>
+	<input type="button" id="btn1" value="ShutDown" onClick="Sys.ShutDown()"></input>
+	<input type="button" id="btn1" value="Reboot" onClick="Sys.Reboot()"></input>
+	<input type="button" id="btn1" value="OpenService" onClick="Sys.OpenService()"></input>
+	<input type="button" id="btn1" value="PossibleTransactionSync" onClick="alert(Sys.PossibleTransactionSync())"></input>
+	<input type="button" id="btn1" value="CloseService" onClick="Sys.CloseService()"></input>
+	<input type="button" id="btn1" value="OpenFrontPage" onClick="Sys.OpenFrontPage()"></input>
+	<input type="button" id="btn1" value="OpenManagePage" onClick="Sys.OpenManagePage()"></input>
+	<input type="button" id="btn1" value="StartPollingStatusCheckSync" onClick="Sys.StartPollingStatusCheckSync()"></input>
+	<input type="button" id="btn1" value="UpTransFile" onClick="Sys.UpTransFile()"></input>
+	<input type="button" id="btn1" value="InitialSync" onClick="Sys.InitialSync()"></input>
+	<input type="button" id="btn1" value="ClearSync" onClick="Sys.ClearSync(251)"></input>
+	<input type="button" id="btn1" value="ItemClearSync" onClick="Sys.ItemClearSync(30)"></input>
+	<input type="button" id="btn1" value="DataSetSync" onClick="Sys.DataSetSync(32,1)"></input>
+	<input type="button" id="btn1" value="GetPartsStatusSync" onClick="alert(Sys.GetPartsStatusSync())"></input>
+	<input type="button" id="btn1" value="InfoGetSync(MTRN_ERRORINFO)" onClick="alert(Sys.InfoGetSync(38))"></input>
+	<input type="button" id="btn1" value="InfoGetSync(MSYS_GETALLALARMINFOFROMFILE)" onClick="alert(Sys.InfoGetSync(40))"></input>
+	<input type="button" id="btn1" value="DataGetSync(MTRN_TRANSACTIONDIFFER)" onClick="Sys.DataGetSync(32)"></input>
+	<input type="button" id="btn1" value="DataGetSync(MSYS_RENAMEALARMFILE)" onClick="Sys.DataGetSync(39)"></input>
+	<input type="button" id="btn1" value="IsBusying" onClick="Sys.IsBusying()"></input>
+	<input type="button" id="btn1" value="SetIsBusying" onClick="Sys.IsBusying=1"></input>
+	<input type="button" id="btn1" value="启动北辰德exe" onClick="Sys.DataGetSync(40)"></input>
+	<input type="button" id="btn1" value="WriteFlushesDataSync" onClick="Sys.WriteFlushesDataSync()"></input>
+	<input type="button" id="btn1" value="ClearFlushesDataSync" onClick="Sys.ClearFlushesDataSync()"></input>
+	<input type="button" id="btn1" value="SetFlushesDataSync" onClick="Sys.SetFlushesDataSync()"></input>
+	<p>--</p>
+	<input type="button" id="btn1" value="IsMaintain" onClick="Sys.IsMaintain()"></input>
+	<input type="button" id="btn1" value="SetIsMaintain" onClick="Sys.IsMaintain=1"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

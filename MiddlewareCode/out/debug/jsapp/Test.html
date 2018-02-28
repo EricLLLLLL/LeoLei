@@ -1,0 +1,84 @@
+﻿<html>
+	<head>
+		<meta charset="utf-8"/> 
+		<script type="text/javascript" src="qwebchannel.js"></script>	
+		<script type="text/javascript" src="API.js"></script>	
+		<script language="javascript">
+		 function Initialize () {
+			if (typeof qt != 'undefined') {
+		  		if (typeof qt.webChannelTransport != 'undefined') {
+		    		new QWebChannel(qt.webChannelTransport,function(channel){
+		    		window.Idc=channel.objects.MIDC;
+		    		window.Dat=channel.objects.MDAT;
+		    		
+		    		Idc.ConnectionOpened.connect(function(){
+		    			alert("连接打开回调");
+		    		});
+		    		
+		    		Dat.AddPersistentDataComplete.connect(function(strDataName){
+		    			alert("AddPersistentDataComplete回调，参数strDataName="+strDataName);
+		    		});
+		    		
+		    		Dat.GetPersistentDataComplete.connect(function(strDataName,strDataType,strValue){
+		    			alert("GetPersistentDataComplete回调，参数strDataName="+strDataName+"  strDataType="+strDataType+"  strValue="+strValue);
+		    		});
+		    		
+		    		alert("init success.");
+		    		});
+		    	}else {
+		    		alert("qt.webChannelTransport off");
+		    	}
+			}else {
+				alert("qt off");
+			}
+		}
+		
+		function OpenConnection() {
+			Idc.OpenConnection(function(iRetCode) {
+				//alert(iRetCode);
+			});
+		}
+		
+		function SetServiceName(){
+			return Idc.ServiceName="IDC";
+		}	
+		
+		function GetServiceName(){
+			return API.Idc.ServiceName;
+		}
+		
+		function AddPersistentData(){
+			Dat.AddPersistentData("TestData","String","",function(iRetCode){
+				//alert(iRetCode);
+			});
+		}
+		
+		function GetPersistentData(){
+			Dat.GetPersistentData("TestData","String",function(iRetCode){
+				//alert(iRetCode);
+			});
+		}
+		
+		function GetDataSync(){
+			Dat.GetDataSync("TestData","String",function(strRet){
+				alert(strRet);
+			});
+		}
+		
+		</script>
+	</head>
+	
+	<body>
+		 <input type="button" id="btn1"  value="Init" onClick="Initialize()"></input>
+		 <input type="button" id="btn1"  value="OpenConnection" onClick="OpenConnection()"></input>
+		 <input type="button" id="btn13"  value="SetServiceName" onClick="alert(SetServiceName())"></input>
+		 <input type="button" id="btn2"  value="GetServiceName" onClick="alert(Idc.ServiceName)"></input>
+		 <input type="button" id="btn3"  value="AddPersistentData" onClick="AddPersistentData()"></input>
+		 <input type="button" id="btn3"  value="GetPersistentData" onClick="GetPersistentData()"></input>
+		 <input type="button" id="btn4"  value="GetDataSync" onClick="GetDataSync()"></input>
+		 
+		 <br/>
+		 <br/>
+		 <br/>
+	</body>
+</html>

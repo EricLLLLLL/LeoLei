@@ -1,0 +1,158 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Scr = channel.objects.MScr;
+						// 打开 成功失败 事件
+						Scr.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Scr.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Scr.CardInserted.connect(function () {
+							alert("Card Inserted!");
+						});
+
+						Scr.CardTaken.connect(function () {
+							alert("Card Moved!");
+						});
+
+						Scr.CardRead.connect(function () {
+							alert("Card Read Track Finish!");
+						});
+
+						Scr.CardAcceptCancelled.connect(function () {
+							alert("Card Accept Cancelled!");
+						});
+
+						Scr.CardAcceptCancelFailed.connect(function () {
+							alert("CardAcceptCancelFailed!");
+						});
+
+						Scr.CardAccepted.connect(function () {
+							alert("Card Accepted!");
+						});
+
+						Scr.CardAcceptFailed.connect(function () {
+							alert("CardAcceptFailed!");
+						});
+
+						Scr.CardInvalid.connect(function () {
+							alert("CardInvalid!");
+						});
+
+						Scr.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Scr.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Scr.ResetComplete.connect(function () {
+							alert("Reset Complete!");
+						});
+
+						Scr.ResetFailed.connect(function () {
+							alert("ResetFailed!");
+						});
+
+						Scr.StatusChanged(a, b, c).connect(function () {
+							alert("StatusChanged  " + c);
+						});
+
+						Scr.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Scr.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Scr.OpenFailed.connect(function () {
+							alert("OpenFailed!");
+						});
+
+						Scr.CloseFailed.connect(function () {
+							alert("CloseFailed");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		// function OpenConnection() {
+		// 	Scr.OpenConnection(function (iRetCode) {
+		// 		alert(iRetCode);
+		// 	});
+		// }
+		//  独有的方法
+		function SetServiceName() {
+			Scr.ServiceName = "BrushCard";
+			alert("BrushCard");
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MScr</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<!-- <input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<br/>
+	<input type="button" id="btn1" value="Register" onClick="alert(Scr.RegisterMessage())"></input>
+	<input type="button" id="btn1" value="SetServiceName" onClick="SetServiceName()"></input> -->
+	<input type="button" id="btn1" value="OpenConnection" onClick="alert(Scr.OpenConnection())"></input>
+	<input type="button" id="btn1" value="OpenConnection" onClick="alert(Scr.CloseConnection())"></input>
+	<input type="button" id="btn2" value="AcceptAndReadTracks" onClick="alert(Scr.AcceptAndReadTracks('1,2,3', 20000))"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn5" value="Get Track1 Data" onClick="alert(Scr.Track1)"></input>
+	<input type="button" id="btn6" value="Get Track2 Data" onClick="alert(Scr.Track2)"></input>
+	<input type="button" id="btn7" value="Get Track3 Data" onClick="alert(Scr.Track3)"></input>
+	<input type="button" id="btn7" value="Get Device Status" onClick="alert(Scr.StDetailedDeviceStatus)"></input>
+	<input type="button" id="btn7" value="Get Media Status" onClick="alert(Scr.StMediaStatus)"></input>
+
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn8" value="Cancel Accept" onClick="alert(Scr.CancelAccept())"></input>
+	<br/>
+	<br/>
+	<br/>
+	<input type="button" id="btn16" value="Reset(NoAction)" onClick="alert(Scr.Reset('NOACTION', 30000))"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

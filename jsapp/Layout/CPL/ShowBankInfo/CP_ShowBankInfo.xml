@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div class="PageContent" id="PageContent" >
+  <div id="PageTop">
+    <div id="PageTitle">
+    </div>
+    <div id="ShowTime">
+    </div>
+  </div>
+  <div id="PageSubject" class="MiddleDiv">
+	<div id="TipDiv">
+		请确认账户信息
+	</div>
+	<div class="CinfoInputDiv" style="text-align:center">
+		账号：
+		<input class="CinfoInput" type="text" id="tCardNo" value="" unselectable="on" readonly="readonly"
+			   style="margin-left: 10px;"/>
+		<br/>
+		户名：
+		<input class="CinfoInput" type="text" id="tName" value="" unselectable="on" readonly="readonly"
+			   style="margin-left: 10px;"/>		
+	</div>    
+    <div class="TipDiv" style="margin-left:120px;">
+    </div>
+    <div class="TipDiv" style="width:280px;margin-left:400px;margin-top: 300px;">
+      <p>温馨提示：</p>
+      <p>请核对一下您的账户信息是否正确</p>
+    </div>
+  </div>
+  <div id="PageButton">
+    <a href='#' class='Right_4' id='OK' >确定</a> <!--add by art-->
+  </div>
+  <div id="PageButton">
+    <a href='#' class='Left_4' id='Exit' >退出</a>
+  </div>
+</div>

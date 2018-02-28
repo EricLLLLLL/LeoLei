@@ -1,0 +1,394 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize1() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Pin = channel.objects.MPIN;
+						// 打开 成功失败 事件
+						Pin.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Pin.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+
+						Pin.KeyLoaded.connect(function () {
+							alert("KeyLoaded");
+						});
+
+						Pin.KeyLoadFailed.connect(function () {
+							alert("KeyLoadFailed");
+						});
+
+						Pin.EncryptComplete(data).connect(function () {
+							alert("EncryptComplete  " + data.toArray());
+						});
+
+						Pin.DecryptComplete(data).connect(function () {
+							alert("DecryptComplete  " + data.toArray());
+						});
+
+						Pin.MACGenerated(data).connect(function () {
+							alert("MACGenerated  " + data.toArray());
+						});
+
+						Pin.CryptFailed.connect(function () {
+							alert("CryptFailed");
+						});
+
+						Pin.ConnectionOpened.connect(function () {
+							alert("Connection Opened");
+						});
+
+						Pin.OpenFailed.connect(function () {
+							alert("OpenFailed");
+						});
+
+						Pin.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Pin.CloseFailed.connect(function () {
+							alert("CloseFailed");
+						});
+
+						Pin.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Pin.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Pin.KeyPressed(key, keyCode).connect(function () {
+							alert(key);
+						});
+
+						Pin.GetPinCompleted.connect(function () {
+							alert("GetPinCompleted");
+						});
+
+						Pin.GetPinFailed.connect(function () {
+							alert("GetPinFailed");
+						});
+
+						Pin.PinBlockCompleted(lParam).connect(function () {
+							alert(" PinBlockCompleted  " + lParam.toArray());
+						});
+
+						Pin.PinBlockFailed.connect(function () {
+							alert("PinBlockFailed");
+						});
+
+						Pin.GetDataComplete(lParam).connect(function () {
+							alert("GetDataComplete  " + lParam.toArray());
+						});
+
+						Pin.GetDataFailed.connect(function () {
+							alert("GetDataFailed");
+						});
+
+						Pin.InitializeComplete.connect(function () {
+							alert("Initialize Complete");
+						});
+
+						Pin.InitializeFailed.connect(function () {
+							alert("InitializeFailed");
+						});
+
+						Pin.StatusChanged(a, b, c).connect(function () {
+							alert(a + "   " + b + "   " + c);
+						});
+
+						Pin.GetPinCancelled.connect(function () {
+							alert("GetPinCancelled");
+						});
+
+						Pin.GetPinCancelFailed.connect(function () {
+							alert("GetPinCancelFailed");
+						});
+
+						Pin.GetDataCancelled.connect(function () {
+							alert("GetDataCancelled");
+						});
+
+						Pin.GetDataCancelFailed.connect(function () {
+							alert("GetDataCancelFailed");
+						});
+
+						Pin.ResetComplete.connect(function () {
+							alert("ResetComplete");
+						});
+
+						Pin.ResetFailed.connect(function () {
+							alert("ResetFailed");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		// function OpenConnection() {
+		// 	Pin.OpenConnection(function (iRetCode) {
+		// 		alert(iRetCode);
+		// 	});
+		// }
+		//  独有的方法
+	</script>
+
+</head>
+
+<body>
+	<h3>MPin</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize1()"></input>
+	<!-- <input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input> -->
+	<br/>
+	<!-- <input type="button" name="btn1" value="Register" OnClick="alert(Pin.RegisterMessage())"></input> -->
+	<input type="button" name="btn1" value="SetServiceName" OnClick="SetServiceName()"></input>
+	<input type="button" name="btn1" value="Open" OnClick="alert(Pin.OpenConnection())"></input>
+	<input type="button" name="btn1" value="Close" OnClick="alert(Pin.CloseConnection())"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn2" value="LoadMasterKey_8" OnClick="LoadMasterKey_8()"></input>
+	<input type="button" name="btn3" value="LoadWorkKey_8" OnClick="LoadWorkKey_8()"></input>
+	<input type="button" name="btn4" value="Initialize" OnClick="Initialize()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn4" value="EncryptECB_8" OnClick="EncryptECB()"></input>
+	<input type="button" name="btn4" value="DecryptECB_8" OnClick="DecryptECB()"></input>
+	<input type="button" name="btn4" value="EncryptCBC_8" OnClick="EncryptCBC()"></input>
+	<input type="button" name="btn4" value="DecryptCBC_8" OnClick="DecryptCBC()"></input>
+	<input type="button" name="btn4" value="GenerateMAC_8" OnClick="GenerateMAC()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn4" value="GetPin" OnClick="GetPin()"></input>
+	<input type="button" name="btn4" value="PinBlock" OnClick="PinBlock()"></input>
+	<input type="button" name="btn4" value="GetData" OnClick="GetData()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn4" value="CancelGetPin" OnClick="alert(Pin.CancelGetPin())"></input>
+	<input type="button" name="btn4" value="CancelGetData" OnClick="alert(Pin.CancelGetData())"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn2" value="LoadMasterKey_16" OnClick="LoadMasterKey_16()"></input>
+	<input type="button" name="btn3" value="LoadWorkKey_16" OnClick="LoadEncryptedKey_16()"></input>
+	<input type="button" name="btn4" value="Initialize" OnClick="Initialize()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn4" value="EncryptECB_16" OnClick="EncryptECB_16()"></input>
+	<input type="button" name="btn4" value="DecryptECB_16" OnClick="DecryptECB_16()"></input>
+	<input type="button" name="btn4" value="EncryptCBC_16" OnClick="EncryptCBC_16()"></input>
+	<input type="button" name="btn4" value="DecryptCBC_16" OnClick="DecryptCBC_16()"></input>
+	<input type="button" name="btn4" value="GenerateMAC_16" OnClick="GenerateMAC_16()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn1" value="GetKeyNames" OnClick="GetKeyNamesSync()"></input>
+	<input type="button" name="btn1" value="GetKeyUseFlags" OnClick="GetKeyUseFlagsSync()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn1" value="Get Detail Device Static" OnClick="alert(Pin.StDetailedDeviceStatus)"></input>
+	<input type="button" name="btn4" value="ExtendedLoadKey_16" OnClick="ExtendedLoadKey()"></input>
+	<br/>
+	<br/>
+	<input type="button" name="btn4" value="Reset" OnClick="Pin.Reset(30000)"></input>
+	<p>--</p>
+	<input type="button" name="btn1" value="KeyIsValidSync" OnClick="Pin.KeyIsValidSync('MasterKey')"></input>
+<!-- 	<input type="button" name="btn1" value="ExtendedLoadEncryptedKey" OnClick="ExtendedLoadEncryptedKey()"></input>
+	<br/> -->
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>
+<script language="JavaScript">
+	window.onbeforeunload = function () {
+		Pin.UnRegisterMessage();
+	}
+
+	function SetServiceName() {
+		var serviceName = "HMPIN";
+		Pin.ServiceName = serviceName;
+		alert(serviceName);
+	}
+	// 补充
+/* function ExtendedLoadEncryptedKey(){
+	var HexWorkKey = top.stringToHex(MACKey);
+        var tmphexArray = new Array();
+        top.Pin.ExtendedLoadEncryptedKey("MACKEY", HexWorkKey, "MasterKey", "CRYPT,MACING", tmphexArray);
+} */
+	function ExtendedLoadKey() {
+
+		var array = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x00);
+		var array1 = new Array();
+		Pin.ExtendedLoadKey("MasterKey", array, "WorkingKey", array1);
+
+	}
+
+	function LoadMasterKey_8() {
+		var keyName = "MasterKey"
+		var array = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+
+		Pin.LoadMasterKey(keyName, array, 10000);
+
+	}
+
+	function LoadWorkKey_8() {
+		var keyName = "FUNCTION"
+		var keyValue = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var encKeyName = "MasterKey"
+
+		Pin.LoadWorkKey(keyName, keyValue, encKeyName);
+	}
+
+
+	function EncryptECB() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION";
+		var padChar = 0x00;
+
+		Pin.EncryptECB(value, keyName, padChar);
+	}
+
+	function DecryptECB() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION";
+		var padChar = 0x00;
+
+		Pin.DecryptECB(value, keyName, padChar);
+	}
+
+	function EncryptCBC() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION";
+		var padChar = 0x00;
+
+		Pin.EncryptCBC(value, keyName, "", padChar);
+	}
+
+	function DecryptCBC() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION";
+		var padChar = 0x00;
+
+		Pin.DecryptCBC(value, keyName, "", padChar);
+	}
+
+	function GenerateMAC() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "MACKEY";
+		var padChar = 0x00;
+
+		Pin.GenerateMAC(value, keyName, "", padChar);
+	}
+
+	function GetPin() {
+		var ret = Pin.GetPin(4, 6, true, "0,1,2,3,4,5,6,7,8,9,ENTER,CANCEL", "ENTER,CANCEL", 300000);
+		alert(ret);
+	}
+
+	function PinBlock() {
+		var ret = Pin.PinBlock("ANSI", "123456789012", 0x00, "FUNCTION", "", "");
+		alert(ret);
+	}
+
+	function GetData() {
+		var ret = Pin.GetData(6, true, "0,1,2,3,4,5,6,7,ENTER,CANCEL", "ENTER,CANCEL", 300000);
+		alert(ret);
+	}
+
+	function Initialize() {
+		Pin.Initialize();
+	}
+
+	function LoadMasterKey_16() {
+		var keyName = "MAST16"
+		var array = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x00);
+
+		Pin.LoadMasterKey(keyName, array, 10000);
+	}
+
+	function LoadWorkKey_16() {
+		var keyName = "FUNCTION16"
+		var keyValue = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f,
+			0x00);
+		var encKeyName = "MAST16"
+
+		Pin.LoadWorkKey(keyName, keyValue, encKeyName);
+	}
+
+	function EncryptECB_16() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION16";
+		var padChar = 0x00;
+
+		Pin.EncryptECB(value, keyName, padChar);
+	}
+
+	function DecryptECB_16() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION16";
+		var padChar = 0x00;
+
+		Pin.DecryptECB(value, keyName, padChar);
+	}
+
+	function EncryptCBC_16() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION16";
+		var padChar = 0x00;
+
+		Pin.EncryptCBC(value, keyName, "", padChar);
+	}
+
+	function DecryptCBC_16() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION16";
+		var padChar = 0x00;
+
+		Pin.DecryptCBC(value, keyName, "", padChar);
+	}
+
+	function GenerateMAC_16() {
+		var value = new Array(0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08);
+		var keyName = "FUNCTION16";
+		var padChar = 0x00;
+
+		Pin.DecryptCBC(value, keyName, "", padChar);
+	}
+
+
+	function GetKeyNamesSync() {
+		var value = Pin.GetKeyNamesSync();
+		alert(value.toArray());
+	}
+
+	function GetKeyUseFlagsSync() {
+		var value = Pin.GetKeyUseFlagsSync("FUNCTION16");
+		alert(value);
+	}
+</script>

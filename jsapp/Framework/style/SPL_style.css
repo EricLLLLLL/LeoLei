@@ -1,0 +1,877 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'simHei';
+}
+
+html, body {
+    width: 1280px;
+    height: 1024px;
+    background-image: url('Graphics/btn/bg.jpg');
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/*公共样式*/
+.lf {
+    float: left;
+}
+
+.rf {
+    float: left;
+}
+
+.clf {
+    clear: both;
+}
+
+#PageContent {
+    color: #222222;
+    font-size: 18px;
+    margin: 0 auto;
+}
+
+#PageContent #PageTop {
+    width: 183px;
+    height: 47px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#PageContent .TopText {
+    float: right;
+    margin-top: -50px;
+    margin-right: 27px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#PageContent .TopImg {
+    float: left;
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+#PageContent #ExitImg {
+    cursor: pointer;
+    width: 98px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-image: url('Graphics/btn/exit_03.jpg');
+}
+
+#PageContent #ExitImg:hover {
+    background-image: url('Graphics/btn/exit_hover_03.png');
+}
+
+#PageContent #ExitImg:active {
+    background-image: url('Graphics/btn/exit_hover_03.png');
+}
+
+#PageContent .TopTimer {
+    position: fixed;
+    float: right;
+    margin-top: 17px;
+    left: 850px;
+    color: #222222;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+#PageContent #PageTitle {
+    position: absolute;
+    overflow: auto;
+    top: 75px;
+    margin-left: 3px;
+    text-align: left;
+}
+
+
+
+#PageContent #PageTitle .title_text {
+    margin-left: 10px;
+    float: left;
+}
+
+#PageContent #PageTop #ShowTime {
+    position: absolute;
+    top: 25px;
+    left: 905px;
+    font-size: 30px;
+    color: #f18268;
+}
+
+.InputDiv {
+    margin-left: 168px;
+    margin-top: 85px;
+}
+
+.AdminInput {
+    width: 272px;
+    height: 44px;
+    line-height: 44px;
+    outline: none;
+    border: 0;
+    background-image: url('Graphics/btn/text.png');
+    background-color: transparent;
+    margin-left: 10px;
+    font-size: 20px;
+    text-indent: 8px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.RadioInput {
+    width: 45px;
+    height: 45px;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url('Graphics/btn/redio_noselct.png');
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.TranstypeRadio {
+    width: 89px;
+    height: 46px;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url('Graphics/btn/btn_on.png');
+    /*margin-right: 30px;*/
+}
+
+.DateInput {
+    width: 69px;
+    height: 44px;
+    line-height: 15px;
+    outline: none;
+    border: 0;
+    background-image: url('Graphics/btn/time_text.png');
+    background-color: transparent;
+    margin-top: 20px;
+    font-size: 20px;
+    text-indent: 10px;
+    letter-spacing: 1px;
+}
+
+.PageLeftButton {
+    height: 49px;
+    width: 49px;
+    top: 325px;
+    left: 11px;
+    position: fixed;
+    background-image: url('Graphics/btn/btn_active_icon1.png');
+    cursor: pointer;
+}
+
+.PageLeftButton:hover {
+    background-image: url('Graphics/btn/btn_active_icon1.png');
+}
+
+.PageLeftButton:active {
+    background-image: url('Graphics/btn/btn_icon1.png');
+}
+
+.PageRightButton {
+    height: 49px;
+    width: 49px;
+    top: 325px;
+    left: 955px;
+    position: fixed;
+    background-image: url('Graphics/btn/btn_active_icon2.png');
+    cursor: pointer;
+}
+
+.PageRightButton:hover {
+    background-image: url('Graphics/btn/btn_active_icon2.png');
+}
+
+.PageRightButton:active {
+    background-image: url('Graphics/btn/btn_icon2.png');
+}
+
+.PageRightButton2 {
+    height: 49px;
+    width: 49px;
+    top: 325px;
+    left: 955px;
+    position: fixed;
+    background-image: url('Graphics/btn/btn_icon3.png');
+    cursor: pointer;
+}
+
+.PageRightButton2:hover {
+    background-image: url('Graphics/btn/btn_active_icon3.png');
+}
+
+.PageRightButton2:active {
+    background-image: url('Graphics/btn/btn_active_icon3.png');
+}
+
+.FunctionBtn {
+    width: 131px;
+    height: 42px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url('Graphics/btn/nonum_34.png');
+    margin-left: 120px;
+    margin-top: 166px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 42px;
+}
+
+.FunctionBtn:hover {
+    background-image: url('Graphics/btn/nonum_48.png');
+}
+
+.FunctionBtn:active {
+    background-image: url('Graphics/btn/nonum_48.png');
+}
+
+
+.BackCPLBtn {
+    width: 131px;
+    height: 42px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url('Graphics/btn/nonum_34.png');
+    margin-left: 450px;
+    margin-top: 100px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 42px;
+}
+
+.BackCPLBtn:hover {
+    background-image: url('Graphics/btn/nonum_48.png');
+}
+
+.BackCPLBtn:active {
+    background-image: url('Graphics/btn/nonum_48.png');
+}
+
+.FunaddBtn {
+    width: 131px;
+    height: 42px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url('Graphics/btn/nonum_34.png');
+    margin-left: 120px;
+    margin-top: 166px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 42px;
+}
+
+.FunaddBtn:hover {
+    background-image: url('Graphics/btn/nonum_48.png');
+}
+
+.FunaddBtn:active {
+    background-image: url('Graphics/btn/nonum_48.png');
+}
+
+.DialogBtn {
+    width: 131px;
+    height: 42px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url('Graphics/btn/Log_btn.png');
+    margin-left: 10px;
+    margin-top: 80px;
+    cursor: pointer;
+}
+
+.MouduleDiv {
+    width: 651px;
+    height: 110px;
+    border: 1px solid #dadada;
+    background-color: #eeeeee;
+    margin-top: 8px;
+    margin-left: 80px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+/* 待机页面样式 b */
+/* #PageSubjectIndex{} */
+
+/* 待机页面样式 e */
+/***********************UnitStatus设备状态页面css****************************/
+.StateDiv {
+    width: 854px;
+    height: 117px;
+    padding-left: 140px;
+    overflow-y: auto;
+    line-height: 68px;
+    border: 0;
+    outline: none;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    font-size: 16px;
+    color: #222222;
+}
+.CPLstatus {
+    line-height:30px;
+}
+    .CPLstatus .TradeIcon,
+    .CPLstatus .MoudleStateIcon {
+        margin-top: 8px;
+    }
+    .CPLstatus .TradeDiv{
+        margin-top: 20px;
+    }
+
+#StateDiv1 {
+    margin-top: 65px;
+    background-image: url('Graphics/btn/state_03.png');
+}
+
+#StateDiv2 {
+    background-image: url('Graphics/btn/state_06.png');
+}
+
+#StateDiv3 {
+    height: 244px;
+    /*line-height: 65px;*/
+    background-image: url('Graphics/btn/state_08.png');
+}
+
+.TradeDiv {
+    float: left;
+    margin-left: 25px;
+}
+
+.TradeIcon {
+    float: left;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin-right: 4px;
+    margin-top: 25px;
+}
+
+#TradeIcon1 {
+    background-image: url('Graphics/btn/icon1.png');
+    /*margin-left: 140px;*/
+}
+
+#TradeIcon2 {
+    background-image: url('Graphics/btn/icon1.png');
+}
+
+#StopIcon1, #StopIcon2, #TradeIcon3 {
+    background-image: url('Graphics/btn/icon1.png');
+}
+
+#StopIcon1 {
+    margin-left: 140px;
+}
+
+.MoudleStateIcon {
+    float: left;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    /*margin-left: 20px;*/
+    margin-right: 4px;
+    /*margin-top: 23px;*/
+    background-image: url('Graphics/btn/icon1.png');
+}
+
+#MoudleIcon1 {
+    background-image: url('Graphics/btn/icon3.png');
+    margin-left: 140px;
+    margin-top: 14px;
+}
+
+.CashDiv {
+    float: left;
+    width: 251px;
+    line-height: 28px;
+    letter-spacing: 1px;
+}
+
+.CurrencyNo {
+    color: green;
+    letter-spacing: 0px;
+}
+
+.CashBox {
+    width: 73px;
+    height: 14px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin-left: 5px;
+}
+
+#Service {
+    margin-left: 17px;
+    margin-top: 25px;
+}
+
+#Reset, #Shutdown, #Reboot {
+    margin-left: 65px;
+    margin-top: 25px;
+}
+
+.TipDiv {
+    color: red;
+    font-size: 16px;
+    float: left;
+    margin-left: 17px;
+    margin-top: 25px;
+}
+
+/***********交易选择页面css*****************/
+.TransImg {
+    float: left;
+    width: 150px;
+    height: 150px;
+    border: 0;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin-left: 105px;
+    cursor: pointer;
+}
+
+#TransImg1 {
+    /*margin-top: 100px;
+    margin-left: 187px;*/
+    background-image: url('Graphics/btn/admin_btn_03.png');
+}
+
+#TransImg1:hover {
+    background-image: url('Graphics/btn/admin_btn_14hover.png');
+}
+
+#TransImg1:active {
+    background-image: url('Graphics/btn/admin_btn_14hover.png');
+}
+
+#TransImg2 {
+    /* margin-top: 100px;*/
+    background-image: url('Graphics/btn/admin_btn_05.png');
+}
+
+#TransImg2:hover {
+    background-image: url('Graphics/btn/admin_btn_12hover.png');
+}
+
+#TransImg2:active {
+    background-image: url('Graphics/btn/admin_btn_12hover.png');
+}
+
+#TransImg3 {
+    /*margin-top: 100px;*/
+    background-image: url('Graphics/btn/admin_btn_07.png');
+}
+
+#TransImg3:hover {
+    background-image: url('Graphics/btn/admin_btn_13hover.png');
+}
+
+#TransImg3:active {
+    background-image: url('Graphics/btn/admin_btn_13hover.png');
+}
+
+#TransImg4 {
+    /*margin-top: 30px;
+    margin-left: 187px;*/
+    background-image: url('Graphics/btn/admin_btn_09.png');
+}
+
+#TransImg4:hover {
+    background-image: url('Graphics/btn/admin_btn_09hover.png');
+}
+
+#TransImg4:active {
+    background-image: url('Graphics/btn/admin_btn_09hover.png');
+}
+
+#TransImg5 {
+    /*margin-top: 30px;*/
+    background-image: url('Graphics/btn/admin_btn_11.png');
+}
+
+#TransImg5:hover {
+    background-image: url('Graphics/btn/admin_btn_11hover.png');
+}
+
+#TransImg5:active {
+    background-image: url('Graphics/btn/admin_btn_11hover.png');
+}
+
+#TransImg6 {
+    /*margin-top: 30px;*/
+    background-image: url('Graphics/btn/finger.png');
+}
+
+#TransImg6:hover {
+    background-image: url('Graphics/btn/finger_hover.png');
+}
+
+#TransImg6:active {
+    background-image: url('Graphics/btn/finger_hover.png');
+}
+
+#TransImg7 {
+    /*margin-left: 187px;
+    margin-top: 30px;*/
+    background-image: url('Graphics/btn/admin_btn_04.png');
+}
+
+#TransImg7:hover {
+    background-image: url('Graphics/btn/admin_btn_04_hover.png');
+}
+
+#TransImg7:active {
+    background-image: url('Graphics/btn/admin_btn_04_hover.png');
+}
+
+#TransImg8 {
+    /* margin-top: 30px;*/
+    background-image: url('Graphics/btn/admin_btn_In.png');
+}
+
+#TransImg8:hover {
+    background-image: url('Graphics/btn/admin_btn_In_hover.png');
+}
+
+#TransImg8:active {
+    background-image: url('Graphics/btn/admin_btn_In_hover.png');
+}
+
+#TransImg9 {
+    /* margin-top: 30px;*/
+    background-image: url('Graphics/btn/Superuser.png');
+}
+
+#TransImg9:hover {
+    background-image: url('Graphics/btn/Superuser_over.png');
+}
+
+#TransImg9:active {
+    background-image: url('Graphics/btn/Superuser_over.png');
+}
+
+#TransImg10 {
+    /* margin-top: 30px;*/
+    background-image: url('Graphics/btn/PinManager.png');
+}
+
+#TransImg10:hover {
+    background-image: url('Graphics/btn/PinManager_over.png');
+}
+
+#TransImg10:active {
+    background-image: url('Graphics/btn/PinManager_over.png');
+}
+
+
+#TransImg11 {
+    /* margin-top: 30px;*/
+    background-image: url('Graphics/btn/admin_btn_DataStatis.png');
+}
+
+#TransImg11:hover {
+    background-image: url('Graphics/btn/admin_btn_DataStatis_hover.png');
+}
+
+#TransImg11:active {
+    background-image: url('Graphics/btn/admin_btn_DataStatis_hover.png');
+}
+
+/***键盘样式**/
+#KeyboardDiv {
+    width: 212px;
+    height: 337px;
+    top: 125px;
+    left: 741px;
+    position: absolute;
+    z-index: 100;
+    background-repeat: no-repeat;
+    padding-left: 4px;
+    padding-top: 2px;
+}
+
+#KeysDiv {
+    top: 535px;
+    left: 50px;
+    position: absolute;
+    z-index: 100;
+}
+
+/***********版本信息页面css*****************/
+.VersionInfoDiv {
+    border: 1px solid #9cc6ff;
+    color: #222222;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 315px;
+    line-height: 30px;
+    height: 260px;
+    margin-left: 160px;
+    margin-top: 75px;
+    background-color: transparent;
+}
+
+/**************提示信息css*****************/
+.PromptTitle {
+    margin-top: 187px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.ImgLoading {
+    margin-top: -7px;
+}
+
+.PromptDiv {
+    margin-top: 188px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.PromptIcon {
+    width: 51px;
+    height: 51px;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    margin-right: 3px;
+    background-image: url(Graphics/box_ico_3.png);
+}
+
+.span_tip {
+    color: red;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.div_tip {
+    margin-left: -150px;
+    width: auto;
+    display: inline-block !important;
+    display: inline;
+    border: 1px solid #bdbdbd;
+    background-color: #d0d2d2;
+    color: red;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
+.crownsize_tab {
+    width: 855px;
+    margin-top: 70px;
+    margin-left: 85px;
+    border-right: 1px solid #e5e3e3;
+}
+
+.crownsize_tab td {
+    height: 25px;
+    background-color: #ededed;
+    text-align: center;
+    border: 1px solid #e5e3e3;
+    border-top: 0;
+    border-right: 0;
+}
+
+.ServiceInfo_tab {
+    width: 855px;
+    margin-top: 70px;
+    margin-left: 85px;
+    border: 1px solid lightgrey;
+}
+
+.ServiceInfo_tab td {
+    height: 25px;
+    background-color: #ededed;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-top: 0;
+    border-right: 0;
+}
+
+.ServiceInfo_tab .th {
+    font-weight: 600;
+    font-size: 120%;
+    font-family: "Microsoft YaHei UI Light";
+}
+
+.crownsize_tabs {
+    width: 855px;
+    margin-top: 90px;
+    margin-left: 85px;
+    border-right: 1px solid #e5e3e3;
+}
+
+.crownsize_tabs td {
+    height: 35px;
+    background-color: #ededed;
+    text-align: center;
+    border: 1px solid #e5e3e3;
+    border-top: 0;
+    border-right: 0;
+}
+
+.title_tr td {
+    font-size: 18px;
+    border-top: 1px solid #e5e3e3;
+    border-bottom: 0;
+}
+
+.pageBtn {
+    width: 78px;
+    height: 35px;
+    outline: none;
+    border: 0;
+    background-image: url('Graphics/btn/page.png');
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.pageNo {
+    width: 40px;
+    font-size: 18px;
+    border: 0;
+    background-color: transparent;
+}
+
+.crownsizeinfo_tab {
+    border: 0;
+    font-size: 16px;
+    width: 855px;
+    border-top: 1px solid #e5e3e3;
+}
+
+.crownsizeinfo_tab td {
+    height: 25px;
+    text-align: center;
+}
+
+.crownsizeinfo_tabs {
+    border: 0;
+    font-size: 16px;
+    width: 855px;
+    border-top: 1px solid #e5e3e3;
+}
+
+.crownsizeinfo_tabs td {
+    height: 35px;
+    text-align: center;
+}
+
+.doub_tr td {
+    background-color: #daeae6;
+}
+
+.detailBtn {
+    width: 42px;
+    height: 44px;
+    outline: none;
+    border: 0;
+    background-image: url('Graphics/btn/xq.png');
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.detailBtn:hover {
+    background-image: url('Graphics/btn/xq_hover.png');
+}
+
+.delBtn {
+    width: 65px;
+    height: 26px;
+    outline: none;
+    border: 0;
+    background-image: url('Graphics/btn/delete_normal.png');
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.delBtn:hover {
+    background-image: url('Graphics/btn/delete_active.png');
+}
+
+.chgBtn {
+    width: 65px;
+    height: 26px;
+    outline: none;
+    border: 0;
+    background-image: url('Graphics/btn/change_normal.png');
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.chgBtn:hover {
+    background-image: url('Graphics/btn/change_active.png');
+}
+
+
+/** add by Gni -- setTransType page **/
+.set-btn-wrap{
+    width:845px;
+    height:500px;
+    margin-top:70px;
+    line-height:180px;
+    overflow-y:auto;
+    /*border: red 1px solid;*/
+    padding: 0;
+}
+    .set-btn-wrap ul:after{
+        display:block;
+        content:" ";
+        clear:both;
+    }
+    .set-btn-wrap li{
+        float: left;
+        /*border: blue 1px solid;*/
+        list-style: none;
+        width: 255px;
+        text-align: right;
+        padding-right: 15px;
+    }
+.TranstypeRadio[flag="0"]{background-image: url('Graphics/btn/btn_off.png');}
+
+/******************************************/
+.hide{
+    display: none;
+}

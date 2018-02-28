@@ -1,0 +1,93 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Tcp = channel.objects.MTCP;
+						// 打开 成功失败 事件
+						Tcp.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Tcp.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Tcp.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function SendToHost() {
+			var objArrData = new Array();
+			Tcp.SendToHost(function(objArrData, timeout){
+				alert(objArrData, timeout);
+			});
+		}
+		//  独有的方法
+	</script>
+</head>
+
+<body>
+	<h3>MTcp-全属性方法</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<input type="button" id="btn2" value="SendToHost" onClick="SendToHost()"></input>
+	<input type="button" id="btn2" value="CompositionData" onClick="alert(Tcp.CompositionData('CWD'))"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+<script>
+	// 事件
+	Tcp.SendFailed.connect(function () {
+		alert("TcpSendFailed");
+	})
+	Tcp.OnRecved.connect(function () {
+		alert("TcpOnRecved");
+	})
+	Tcp.CompositionDataCompleted.connect(function () {
+		alert("CompositionDataCompleted");
+	})
+	Tcp.Timeout.connect(function () {
+		alert("TcpTimeout");
+	})
+	Tcp.CompositionDataFail.connect(function () {
+		alert("TcpTimeout");
+	})
+	Tcp.AnalysisFailed.connect(function () {
+		alert("AnalysisFailed");
+	})
+</script>
+
+</html>

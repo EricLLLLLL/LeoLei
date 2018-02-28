@@ -1,0 +1,241 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Tsl = channel.objects.MTSL;
+						// 打开 成功失败 事件
+						Tsl.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Tsl.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Tsl.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Tsl.FatalError.connect(function () {
+							alert("FatalError!");
+						});
+
+						Tsl.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Tsl.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Tsl.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+		//  独有的方法
+	</script>
+</head>
+
+<body>
+	<h3>MTsl</h3>
+	<a href="JavaScript:history.go(-1)"style="margin-right:20px" >TesAllMode</a>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input>
+	<br/>
+	<p>
+		<!-- <input type = "button" name = "btn" value = "Register" OnClick = "alert(Tsl.RegisterMessage())"></input> -->
+		<input type="button" name="btn" value="InitJnlSync" OnClick="alert(Tsl.InitJnlSync('C:\\DATA\\TransactionJournal\\20161222.txt',15))"></input>
+		<input type="button" name="btn" value="UnInitJnlSync" OnClick="alert(Tsl.UnInitJnlSync())"></input>
+		<h1></h1>
+		//nUpDownFlag--- 1:下翻 -1: 下翻; nLineOrPageFlag--- 0: 翻页, 1:移行 nUpDownFlag:
+		<input type="text" id="nUpDownFlag"></input>
+		nLineOrPageFlag:
+		<input type="text" id="nLineOrPageFlag"></input>
+		<h1></h1>
+		<input type="button" name="btn" value="ReadJNLSync" OnClick="ReadJNLSync()"></input>
+		<h1></h1>
+		//nBeginFlag--- 1:从头开始查找, 0:查找下一条; nType--- 1:按时间 2:按卡号 3:按流水号 nUpDownFlag:
+		<input type="text" id="nBeginFlag"></input>
+		nLineOrPageFlag:
+		<input type="text" id="nType"></input>
+		查找值:
+		<input type="text" id="strData"></input>
+		<h1></h1>
+		<input type="button" name="btn" value="SearchJNLSync" OnClick="SearchJNLSync()"></input>
+		<h1></h1>
+		<input type="button" name="btn" value="InitFsnSync" OnClick="alert(Tsl.InitFsnSync('C:\\DATA\\tmpFSN.txt'))"></input>
+		<input type="button" name="btn" value="UnInitFsnSync" OnClick="alert(Tsl.UnInitFsnSync())"></input>
+		<input type="button" name="btn" value="ReadFSNSync" OnClick="alert(Tsl.ReadFSNSync())"></input>
+		<input type="button" name="btn" value="SearchFSN" OnClick="alert(Tsl.SearchFSN('','','','',''))"></input>
+	</p>
+
+
+	<p>
+		<hr style="border:1px dotted #036" />
+		<p>
+			Date:
+			<input type="text" id="Date" size="6"></input>
+			Time:
+			<input type="text" id="Time" size="6"></input>
+			CardNo:
+			<input type="text" id="CardNo" value="1234567890123456789" size="10"></input>
+			JnlNum:
+			<input type="text" id="JnlNum" value="0001" size="5"></input>
+			<br/>
+			<br/> Type:
+			<select id="Type">
+				<option value="BCWD" selected="selected">BCWD</option>
+				<option value="BDEP">BDEP</option>
+				<option value="SCWD">SCWD</option>
+				<option value="SDEP">SDEP</option>
+			</select>
+			Money:
+			<input type="text" id="Money" size="5"></input>
+			IDNo:
+			<input type="text" id="IDNo" value="123456789012345678901"></input>
+			ImagePath:
+			<input type="text" id="ImagePath" value="C:\h.img"></input>
+			Result:
+			<select id="Result">
+				<option value="SUCCESS" selected="selected">SUCCESS</option>
+				<option value="FAIL">FAIL</option>
+			</select>
+		</p>
+		<p>
+			<input type="button" id="btn8" value="AddTransLogSync" onClick="AddTransLog()"></input>
+		</p>
+		<p>
+			<input type="button" id="btn9" value="HandleRecordFileSync" onClick="HandleRecordFileSync()"></input>
+			HandleRecord:
+			<input type="text" id="HandleRecord"></input>
+			WriteTransRecord=0,//////写交易记录 WriteRetainCardRecord,//////写吞卡记录 WriteCheckTransRecord,/////写对账记录 ReadTransRecord,//////读交易记录
+			ReadRetainCardRecord,////读吞卡记录 RenameRecord////////重命名交易和吞卡记录
+		</p>
+		<input type="button" id="btn10" value="UpdateRecord" onClick="Tsl.UpdateRecord('300','200','55')"></input>
+	</p>
+	<p>
+		<hr style="border:1px dotted #036" />
+		<p>
+			StartDate:
+			<input type="text" id="StartDate" size="6"></input>
+			EndDate:
+			<input type="text" id="EndDate" size="6"></input>
+			Type:
+			<select id="Type_Count">
+				<option value="BCWD" selected="selected">BCWD</option>
+				<option value="BDEP">BDEP</option>
+				<option value="SCWD">SCWD</option>
+				<option value="SDEP">SDEP</option>
+				<option value="*">*</option>
+			</select>
+		</p>
+
+		<p>
+			<input type="button" id="btn8" value="CountTypeSync" onClick="CountTypeSync()"></input>
+			<input type="button" id="btn8" value="SumTypeMoneySync" onClick="SumTypeMoneySync()"></input>
+			<input type="button" id="btn8" value="SumDataSync" onClick="SumDataSync()"></input>
+		</p>
+		<hr style="border:1px dotted #036" />
+	</p>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>
+<script language="JavaScript">
+	function SearchJNLSync() {
+		var BeginFlag = document.getElementById("nBeginFlag").value;
+		var Type = document.getElementById("nType").value;
+		var Data = document.getElementById("strData").value;
+		var str = Tsl.SearchJNLSync(parseInt(BeginFlag), parseInt(Type), Data);
+		alert(str);
+	}
+
+	function ReadJNLSync() {
+		var UpDownFlag = document.getElementById("nUpDownFlag").value;
+		var LineOrPageFlag = document.getElementById("nLineOrPageFlag").value
+		var str = Tsl.ReadJNLSync(parseInt(UpDownFlag), parseInt(LineOrPageFlag));
+		alert(str);
+	}
+
+	function AddTransLog() {
+		var str = document.getElementById("Date").value + "|" +
+			document.getElementById("Time").value + "|" +
+			document.getElementById("CardNo").value + "|" +
+			document.getElementById("JnlNum").value + "|" +
+			document.getElementById("Type").value + "|" +
+			document.getElementById("Money").value + "|" +
+			document.getElementById("IDNo").value + "|" +
+			document.getElementById("ImagePath").value + "|" +
+			document.getElementById("Result").value
+
+		alert(Tsl.AddTransLogSync(str));
+	}
+
+	function HandleRecordFileSync() {
+		var str = document.getElementById("Date").value + "|" +
+			document.getElementById("Time").value + "|" +
+			document.getElementById("CardNo").value + "|" +
+			document.getElementById("JnlNum").value + "|" +
+			document.getElementById("Type").value + "|" +
+			document.getElementById("Money").value + "|" +
+			document.getElementById("IDNo").value + "|" +
+			document.getElementById("ImagePath").value + "|" +
+			document.getElementById("Result").value
+		alert(str);
+		var id = document.getElementById("HandleRecord").value;
+		Tsl.HandleRecordFileSync(parseInt(id), str);
+		Tsl.HandleRecordFileSync(4, str);
+
+	}
+
+	function SumDataSync() {
+		var StartDate = document.getElementById("StartDate").value;
+		var EndDate = document.getElementById("EndDate").value;
+		alert(Tsl.SumDataSync(StartDate, EndDate));
+	}
+
+	function CountTypeSync() {
+		var StartDate = document.getElementById("StartDate").value;
+		var EndDate = document.getElementById("EndDate").value;
+		var Type = document.getElementById("Type_Count").value;
+
+		alert(Tsl.CountTypeSync(StartDate, EndDate, Type));
+	}
+
+	function SumTypeMoneySync() {
+		var StartDate = document.getElementById("StartDate").value;
+		var EndDate = document.getElementById("EndDate").value;
+		var Type = document.getElementById("Type_Count").value;
+
+		alert(Tsl.SumTypeMoneySync(StartDate, EndDate, Type));
+	}
+</script>

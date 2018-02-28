@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="9/11/2017 4:46:32 PM">
+    <div id="PageTop">
+        <div id="PageTitle">
+        </div>
+        <div id="ShowTime">
+        </div>
+    </div>
+    <div id="PageSubject" class="MiddleDiv">
+        <div id="TrabsferkInfo" style="text-align:center;display:block;margin-left:-100px" class="">
+            <div id="TipDiv" style="margin-left:100px">
+                转账信息
+            </div>
+            <div style=" display: inline-block;">
+                <span class="bigSpan">收款方账号：</span>
+                <input class="CinfoInput" type="text" id="PayeeAccount" value="" maxlength="" style="margin-left:10px;margin-top: 10px; font-size:20px;" unselectable="on" readonly="readonly"/>
+            </div>
+            <div class="">
+                <span class="bigSpan">收款方户名：</span>
+                <input class="CinfoInput" type="text" id="PayeeName" value="" unselectable="on" readonly="readonly" style="margin-left:10px;margin-top: 10px; font-size:20px;"/>
+            </div>
+            <div class="">
+                <span class="bigSpan">收款方行方：</span>
+                <input class="CinfoInput" type="text" id="PayeeBank" value="" unselectable="on" readonly="readonly" style="margin-left:10px;margin-top: 10px; font-size:20px;"/>
+            </div>
+            <div class="">
+                <span class="bigSpan">转账金额：</span>
+                <input class="CinfoInput" type="text" id="TransferMoney" value="" unselectable="on" readonly="readonly" style="margin-left:28px; margin-top: 10px; font-size:20px;"/>
+            </div>
+            <div class="">
+                <span class="bigSpan" style="margin-left:10px">转账方式：</span>
+                <div class="transferWay">
+                    <div class="check-wrap">  <input type="radio" id="actualTime" name="radio" value="0"/>  <label for="actualTime">实时转账</label>
+                    </div>
+                    <div class="check-wrap">  <input type="radio" id="common" name="radio" value="1"/>  <label for="common">普通转账</label>
+                    </div>
+                    <div class="check-wrap">  <input type="radio" id="morrow" name="radio" value="2"/>  <label for="morrow">次日转账</label>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="margin-top:10px;">
+                <span class="bigSpan " style="margin-left:-240px">附&#160;&#160;&#160;言：</span>
+                <select class="CommentSelect" style="margin-left:40px" id="CommentSelect">
+                    <option>还款</option>
+                    <option>货款</option>
+                    <option>运费</option>
+                    <option>工资</option>
+                    <option>房租</option>
+                    <option>生活费</option>
+                    <option>水电费</option>
+                    <option>煤气费</option>
+                    <option>其他</option>
+                </select>
+            </div>
+            <div class="" style="text-align:center">
+                <textarea class="postScript" id="postScript" readonly="readonly" style=""></textarea>
+            </div>
+            <div class="TrabsferkTip" style="margin-left:100px">
+                <p class="" id="TransferTip"></p>
+            </div>
+        </div>
+    </div>
+    <div id="PageButton">
+        <a href="#" class="Left_4" id="Exit">退出</a>
+        <a href="#" class="Left_3" id="Back">返回</a>
+        <a href="#" class="Right_4" id="OK">确认</a>
+    </div>
+    <div id="PageRoot">
+    </div>
+</div>

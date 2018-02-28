@@ -1,0 +1,171 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Idr = channel.objects.MIDR;
+						Idr.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Idr.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+
+						// IDR 事件
+						Idr.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Idr.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Idr.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Idr.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+						Idr.CardAccepted.connect(function (info) {
+							alert(info);
+						});
+
+						Idr.CardInserted.connect(function () {
+							alert("Card Inserted");
+						});
+
+						Idr.CardInvalid.connect(function () {
+							alert("Card Invalid");
+						});
+						Idr.CardAcceptFailed.connect(function () {
+							alert("CardAcceptFailed");
+						});
+
+						Idr.CardEjected.connect(function () {
+							alert("Card Ejected");
+						});
+						Idr.CardEjectFailed.connect(function () {
+							alert("CardEjectFailed");
+						});
+
+						Idr.CardTaken.connect(function () {
+							alert("Card Taken");
+						});
+
+						Idr.CardCaptured.connect(function () {
+							alert("Card Captured");
+						});
+						Idr.CardCaptureFailed.connect(function () {
+							alert("CardCaptureFailed");
+						});
+
+						Idr.CardAcceptCanceled.connect(function () {
+							alert("Card Accept Canceled");
+						});
+
+						Idr.CardWaitCanceled.connect(function () {
+							alert("Card Wait Canceled");
+						});
+						Idr.ResetComplete.connect(function () {
+							alert("ResetComplete");
+						});
+						Idr.ResetFailed.connect(function () {
+							alert("ResetFailed");
+						});
+
+						alert("init success");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		// IDR  方法
+		function OpenConnection() {
+			Idc.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function SetServiceName() {
+			return Idr.ServiceName = 'CardReader';
+		}
+
+		function GetServiceName() {
+			return Idr.ServiceName;
+		}
+
+	</script>
+</head>
+
+<body>
+	<h3>IDR-全属性方法</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn1" value="OpenConnection" onClick="OpenConnection()"></input>
+	<input type="button" id="btn13" value="SetServiceName" onClick="alert(SetServiceName())"></input>
+	<input type="button" id="btn2" value="GetServiceName" onClick="alert(Idr.ServiceName)"></input>
+	<input type="button" id="btn1" value="CloseConnection" onClick="Idr.CloseConnection()"></input>
+	<br>
+	<!-- 方法   onClick = 模块.方法名（可填参数） -->
+	<p>方法：</p>
+	<input type="button" id="btn1" value="AcceptAndRead" onClick="Idr.AcceptAndRead(30000)"></input>
+	<input type="button" id="btn1" value="Eject" onClick="Idr.Eject(30000)"></input>
+	<input type="button" id="btn1" value="Capture" onClick="Idr.Capture(30000)"></input>
+	<input type="button" id="btn1" value="CancelAccept" onClick="Idr.CancelAccept()"></input>
+	<input type="button" id="btn1" value="CancelWait" onClick="Idr.CancelWait()"></input>
+	<br/>
+	<br/>
+	<!-- 属性   onClick = alert（模块.属性名） -->
+	<p>属性：</p>
+	<input type="button" id="btn1" value="Name" onClick="alert(Idr.Name)"></input>
+	<input type="button" id="btn1" value="Sex" onClick="alert(Idr.Sex)"></input>
+	<input type="button" id="btn1" value="Nation" onClick="alert(Idr.Nation)"></input>
+
+	<input type="button" id="btn1" value="Birthday" onClick="alert(Idr.Birthday)"></input>
+	<input type="button" id="btn1" value="Address" onClick="alert(Idr.Address)"></input>
+	<input type="button" id="btn1" value="Number" onClick="alert(Idr.Number)"></input>
+
+	<input type="button" id="btn1" value="Department" onClick="alert(Idr.Department)"></input>
+	<input type="button" id="btn1" value="StartTime" onClick="alert(Idr.StartTime)"></input>
+	<input type="button" id="btn1" value="EndTime" onClick="alert(Idr.EndTime)"></input>
+
+	<br/>
+	<br/>
+	<input type="button" id="btn1" value="MediaStatus" onClick="alert(Idr.StMediaStatus)"></input>
+	<input type="button" id="btn1" value="DeviceStatus" onClick="alert(Idr.StDetailedDeviceStatus)"></input>
+	<p>--</p>
+	<input type="button" id="btn1" value="Reset" onClick="Idr.Reset('NOACTION')"></input>
+	<input type="button" id="btn1" value="PortraitFilePath" onClick="alert(Idr.PortraitFilePath)"></input>
+	<input type="button" id="btn1" value="FrontFilePath" onClick="alert(Idr.FrontFilePath)"></input>
+	<input type="button" id="btn1" value="BackFilePath" onClick="alert(Idr.BackFilePath)"></input>
+	<!-- <p>设置路径 暂时不用</p> -->
+	<!-- <input type="button" id="btn1" value="SetFrontFilePath" onClick="Idr.SetFrontFilePath('新的路径')"></input>
+	<input type="button" id="btn1" value="SetBackFilePath" onClick="Idr.SetBackFilePath('新的路径')"></input> -->
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

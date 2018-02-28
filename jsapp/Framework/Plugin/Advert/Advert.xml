@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<div class="advDiv">
+    <ul class="slider">
+        <li>
+            <img src="./Framework/style/Graphics/0.jpg" width="620" style="display:block"/>
+        </li>
+        <li>
+            <img src="./Framework/style/Graphics/1.jpg" width="620"/>
+        </li>
+        <li>
+            <img src="./Framework/style/Graphics/2.jpg" width="620"/>
+        </li>
+        <li>
+            <img src="./Framework/style/Graphics/3.jpg" width="620"/>
+        </li>
+        <li>
+            <img src="./Framework/style/Graphics/4.jpg" width="620"/>
+        </li>
+    </ul>
+</div>

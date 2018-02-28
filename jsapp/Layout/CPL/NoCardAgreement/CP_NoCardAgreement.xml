@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="12/7/2015 4:26:25 PM">
+	<div id="PageTop">
+    <div id="ShowTime"></div>
+  </div>
+	<div id="PageSubject">
+    <div class="AgreementDiv">
+		<div style="font-family:SimHei;text-align:center;color:#000;margin-top:100px;font-size:30px;font-weight:bold;">温馨提示</div>
+
+		<p style="line-height: 200%;text-align:left;color:#000;margin-top:20px;font-family:'simHei';font-size:15px;margin-left:40px;">
+			1、存款前务必仔细核对存入账号和户名，以确保存入的资金顺利到账。<br/>
+			2、无卡存款交易只接受存入到本行卡账户，无折存款交易只接受存入到本行本地存折账户。<br/>
+			3、如果您接受上述条款并愿意承担使用本存款功能可能存在的风险，请选择[确认]，否则选择[取消]。<br/><br/>
+		</p>
+		<p style="line-height: 200%;text-align:left;color:#000;margin-top:6px;font-family:'simHei';font-size:14px;margin-left:40px;">
+
+			1.Before deposit,please check carefully the account number and the account name deposited in to ensure smooth transaction.<br/>
+			2.The deposit without card can only allow deposits to Card accounts of ABC,and the deposit without bankbook can only allow deposits to bankbook accounts of ABC in the same region.<br/>
+			3.If you accept the above terms and are willing to bear any potential risks of the deposit function,please select OK,or else select CANCEL. <br/>
+			
+		</p>
+		<p style="line-height: 400%;text-align:center;color:red;font-family:'simHei';font-size:26px; margin-top:80px;">
+
+			请勿向陌生人汇款，谨防上当受骗
+			
+		</p>
+
+
+
+	</div>
+	</div>
+	<div id="PageButton">
+		<a href="#" class="Left_4" id="Exit">取消</a>
+		<a href="#" class="Right_4" id="OK">确定</a>
+	</div>
+</div>

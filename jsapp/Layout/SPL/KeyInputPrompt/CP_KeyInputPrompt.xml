@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="12/15/2015 3:22:49 PM">
+  <div id="PageTop">
+    <div id="PageTitle">
+      <img src="Framework/style/Graphics/btn/m1.jpg" style="float:left;"/>
+      <div class="title_text">设置加密密钥</div>
+    </div>
+    <div id="ShowTime">
+    </div>
+  </div>
+  <div class="TopText">
+    <div style="float:left;">
+      受理行号：<span id='SubBankId'>00000000-12345678号机</span>
+      <br/>
+      状态：<span id='DevStatus'>00000（00）</span>
+    </div>
+  </div>
+  <div class="TopTimer" id="LocalTime">
+    2015-12-16  10:54
+  </div>
+  <div id="PageSubject">
+    <input type="button" id="InputA" value="输入密钥A" class="FunctionBtn" style="margin-left:200px;"/>
+    <input type="button" id="InputB" value="输入密钥B" class="FunctionBtn"/>
+    <input type="button" id="InputC" value="输入密钥C" class="FunctionBtn"/>
+    <div class="TipDiv" style="margin-top:80px;margin-left:200px;float:none;">
+      温馨提示：请选择设定项，并按相应按钮设定
+      <br/><br/>
+      请在设定完密钥A、B、C之后，按 "<font style="color:#000;">设定主密钥</font>" 按钮进行主密钥设定
+      <br/><br/>
+      按下 "<font style="color:#000;">初始化EPP键盘</font>" 按钮将进行所有密钥清除操作
+    </div>
+    <input type="button" id="InitEPP" value="初始化EPP键盘" class="FunctionBtn" style="margin-top:80px;margin-left:200px;"/>
+    <input type="button" id="Setkey" value="设定主密钥" class="FunctionBtn" style="margin-top:80px;"/>
+    <input type="button" id="DownloadKey" value="下载工作参数" class="FunctionBtn" style="margin-top:80px;"/>
+  </div>
+  <div class="PageLeftButton" id="Exit"></div>
+</div>

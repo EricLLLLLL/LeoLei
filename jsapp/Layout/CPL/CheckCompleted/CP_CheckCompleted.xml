@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="12/8/2015 3:46:58 PM">
+  <div id="PageTop">
+    <div id="PageTitle" style="margin-top:-60px;">
+      身份证联网核查结果
+    </div>
+    <div id="ShowTime">
+    </div>
+  </div>
+  <div id="PageSubject" class="MiddleDiv" style="width:716px; height:586px;margin-top:15px;background-image: url('Framework/style/Graphics/bg_big03.png');">
+    <br/>
+    <div id="DivContent" style="display:block">
+      <table id="CinfoInputDiv_T" style="text-align:right;margin-left:105px;margin-top:20px;">
+        <tr>
+          <td>
+            <p>姓名：</p>
+          </td>
+          <td width="275px">
+            <input class="CinfoInput" type="text" id="Name" value="" style="width:272px;background-position-y:-176px;" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>民族：</p>
+          </td>
+          <td>
+            <input class="CinfoInput" type="text" id="Nation" value="" style="width:272px;background-position-y:-176px;" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>性别：</p>
+          </td>
+          <td>
+            <input class="CinfoInput" type="text" id="Sex" value="" style="width:272px;background-position-y:-176px;" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>身份证号码：</p>
+          </td>
+          <td>
+            <input class="CinfoInput" type="text" id="Number" value="" style="width:272px;background-position-y:-176px;" readonly="readonly"/>
+          </td>
+        </tr>
+      </table>
+      <table style="width:100%;text-align:center;font-size:20px;">
+        <tr>
+          <td>
+            <label style="margin-left:45px;">身份证照片</label>
+            <label style="margin-left:15px;">联网核查照片</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img id="IdCardpic" style="width:100px;height:140px;margin-left:25px;" src="Framework/style/Graphics/photo.png"/>
+            <img id="CheckIdCardpic" style="width:100px;height:140px;margin-left:35px;" src="Framework/style/Graphics/photo.png"/>
+          </td>
+        </tr>
+      </table>
+      <div style="text-align:left;margin-left:120px;">
+        <div style="margin-left:88px;">
+          <!--<p>
+            户名：<label id="tName"></label>
+          </p>-->
+          <p>
+            账号：<label id="CardNo"></label>
+          </p>
+        </div>
+        <p>
+          联网核查结果：<label id="Check-tip" style="color:red;"></label>
+        </p>
+        <!--<p>
+          户名比对结果：<label id="ResName" style="color:red;"></label>
+        </p>-->
+      </div>
+    </div>
+    <div id="DivTakeIDcard" style="text-align:center;margin-top:80px;display:none;">
+      <img src="Framework/style/Graphics/takeIDcrad.gif"/>
+      <div style="color:red;font-size:18px;text-align:center;margin-top:80px;">请取走您的身份证后，按“确认”键继续</div>
+    </div>
+  </div>
+  <div id="PageButton">
+    <a href='#' class='Left_4' id='Exit' >退出</a>
+    <a href='#' class='Right_4' id='OK'>确认</a>
+  </div>
+</div>

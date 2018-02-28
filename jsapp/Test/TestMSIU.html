@@ -1,0 +1,147 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Siu = channel.objects.MSIU;
+						// 打开 成功失败 事件
+						Siu.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Siu.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Siu.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Siu.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Siu.ResetComplete.connect(function () {
+							alert("ResetComplete");
+						});
+
+						Siu.ResetFailed.connect(function () {
+							alert("ResetFailed");
+						});
+
+
+
+						Siu.DeviceError.connect(function () {
+							alert("DeviceError!");
+						});
+
+						Siu.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		/* 		function OpenConnection() {
+					Siu.OpenConnection(function (iRetCode) {
+						alert(iRetCode);
+					});
+				} */
+		//  独有的方法
+		function SetServiceName() {
+			Siu.ServiceName = "HMSIU";
+			alert("HMSIU");
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MSiu</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<!-- <input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input> -->
+	<br/>
+	<!-- <input type="button" id="btn0"  value="Register" onClick="alert(Siu.RegisterMessage())"></input> -->
+	<input type="button" id="btn1" value="SetServiceName" onClick="SetServiceName()"></input>
+	<input type="button" id="btn1" value="OpenConnection" onClick="alert(Siu.OpenConnection())"></input>
+	<input type="button" id="btn2" value="CloseConnection" onClick="alert(Siu.CloseConnection())"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn0" value="SetPinPadLight(OFF)" onClick="alert(Siu.SetPinPadLight('OFF'))"></input>
+	<input type="button" id="btn1" value="SetPinPadLight(SLOW)" onClick="alert(Siu.SetPinPadLight('SLOW'))"></input>
+	<input type="button" id="btn2" value="SetPinPadLight(MEDIUM)" onClick="alert(Siu.SetPinPadLight('MEDIUM'))"></input>
+	<input type="button" id="btn2" value="SetPinPadLight(QUICK)" onClick="alert(Siu.SetPinPadLight('QUICK'))"></input>
+	<input type="button" id="btn2" value="SetPinPadLight(QUICK)" onClick="alert(Siu.SetPinPadLight('CONTINUOUS'))"></input>
+	<input type="button" id="btn2" value="GetStPinPadLightStatus" onClick="alert(Siu.StPinPadLightStatus)"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn0" value="SetCardReaderLight(OFF)" onClick="alert(Siu.SetCardReaderLight('OFF'))"></input>
+	<input type="button" id="btn1" value="SetCardReaderLight(SLOW)" onClick="alert(Siu.SetCardReaderLight('SLOW'))"></input>
+	<input type="button" id="btn2" value="SetCardReaderLight(MEDIUM)" onClick="alert(Siu.SetCardReaderLight('MEDIUM'))"></input>
+	<input type="button" id="btn2" value="SetCardReaderLight(QUICK)" onClick="alert(Siu.SetCardReaderLight('QUICK'))"></input>
+	<input type="button" id="btn2" value="SetCardReaderLight(QUICK)" onClick="alert(Siu.SetCardReaderLight('CONTINUOUS'))"></input>
+	<input type="button" id="btn2" value="GetStCardReaderLightStatus" onClick="alert(Siu.StCardReaderLightStatus)"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn0" value="SetReceiptPrinterLight(OFF)" onClick="alert(Siu.SetReceiptPrinterLight('OFF'))"></input>
+	<input type="button" id="btn1" value="SetReceiptPrinterLight(SLOW)" onClick="alert(Siu.SetReceiptPrinterLight('SLOW'))"></input>
+	<input type="button" id="btn2" value="SetReceiptPrinterLight(MEDIUM)" onClick="alert(Siu.SetReceiptPrinterLight('MEDIUM'))"></input>
+	<input type="button" id="btn2" value="SetReceiptPrinterLight(QUICK)" onClick="alert(Siu.SetReceiptPrinterLight('QUICK'))"></input>
+	<input type="button" id="btn2" value="SetReceiptPrinterLight(QUICK)" onClick="alert(Siu.SetReceiptPrinterLight('CONTINUOUS'))"></input>
+	<input type="button" id="btn2" value="GetStReceiptPrinterLightStatus" onClick="alert(Siu.StReceiptPrinterLightStatus)"></input>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<input type="button" id="btn0" value="SetScannerLight(OFF)" onClick="alert(Siu.SetScannerLight('OFF'))"></input>
+	<input type="button" id="btn1" value="SetScannerLight(SLOW)" onClick="alert(Siu.SetScannerLight('SLOW'))"></input>
+	<input type="button" id="btn2" value="SetScannerLight(MEDIUM)" onClick="alert(Siu.SetScannerLight('MEDIUM'))"></input>
+	<input type="button" id="btn2" value="SetScannerLight(QUICK)" onClick="alert(Siu.SetScannerLight('QUICK'))"></input>
+	<input type="button" id="btn2" value="SetScannerLight(QUICK)" onClick="alert(Siu.SetScannerLight('CONTINUOUS'))"></input>
+	<input type="button" id="btn2" value="GetStScannerLightStatusStatus" onClick="alert(Siu.StScannerLightStatus)"></input>
+
+	<br/>
+
+
+	<input type="button" id="btn2" value="Reset" onClick="alert(Siu.Reset(30000))"></input>
+	
+
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

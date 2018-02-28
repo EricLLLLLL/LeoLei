@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="9/11/2017 4:46:32 PM">
+    <div id="PageTop">
+        <div id="PageTitle">
+        </div>
+        <div id="ShowTime">
+        </div>
+    </div>
+    <div id="PageSubject" style="">
+        <div id="TrabsferkInfoDIV" style="display:block;margin-left:200px;" class="trabsferk-info">
+            <div id="TipDiv" style="margin-left:-200px;">
+                转账信息确认
+            </div>
+            <div class="">
+                <span class="bigSpan">收款方账号：</span>
+                <span id='PayeeAccount' class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="">
+                <span class="bigSpan">收款方户名：</span>
+                <span id="PayeeName" class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="">
+                <span class="bigSpan">收款方行方：</span>
+                <span id="PayeeBank" class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="" style="">
+                <span class="bigSpan">转账金额：</span>
+                <span id="TransferMoney" class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="" style="">
+                <span class="bigSpan">转账大写金额：</span>
+                <span id="TransferMoney2" class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="" style="">
+                <span class="bigSpan">转账方式：</span>
+                <span id='transferWay' class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="">
+                <span class="bigSpan">附&#160;&#160;言：</span>
+                <span id='transferComment' class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="">
+                <span class="bigSpan">手续费：</span>
+                <span id='transferPoundage' class="TrabsferkInfo" style="margin-left:20px"></span>
+            </div>
+            <div class="TrabsferkInfo" style="font-size:20px;margin-left:50px;">
+                <p>
+                    温馨提示：为了确保您的资金安全，请认真核对上述交易信息
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="PageButton">
+        <a href="#" class="Left_3" id="Back">返回</a>
+        <a href="#" class="Left_4" id="Exit">退出</a>
+        <a href="#" class="Right_4" id="OK">确定</a>
+    </div>
+    <div id="PageRoot">
+    </div>
+</div>

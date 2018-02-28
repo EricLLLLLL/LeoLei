@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="12/8/2015 1:47:47 PM">
+  <div id="PageTop">
+    <div id="PageTitle">
+      请插入您的卡片
+    </div>
+    <div id="ShowTime"></div>
+  </div>
+  <div id="PageSubject" class="MiddleDiv">
+    <img src="Framework/style/Graphics/insertcard.gif" style="margin-top:90px;margin-left:100px;"/>
+  </div>
+  <div id="PageButton">
+    <a href='#' class='Left_4' id='Exit'>取消</a>
+    <a href='#' class='Right_4' id='OK' style='display:none;'>确定</a>
+  </div>
+</div>

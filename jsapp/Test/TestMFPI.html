@@ -1,0 +1,139 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Fpi = channel.objects.MFPI;
+						// 打开 成功失败 事件
+						Fpi.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Fpi.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						});
+						// 事件
+						Fpi.ConnectionOpened.connect(function () {
+							alert("Connection Opened!");
+						});
+
+						Fpi.ConnectionClosed.connect(function () {
+							alert("Connection Closed");
+						});
+
+						Fpi.Timeout.connect(function () {
+							alert("Timeout!");
+						});
+
+						Fpi.DeviceError.connect(function () {
+							alert("Device Error!");
+						});
+
+
+						Fpi.IdentifyComplete(data).connect(function () {
+
+							alert("IdentifyComplete" + data);
+						});
+
+						Fpi.IdentifyFailed.connect(function () {
+							alert("Identify Failed");
+						});
+						Fpi.DataAcquired(data).connect(function () {
+							MatchData[0] = data;
+							alert("DataAcquired" + MatchData);
+						});
+						Fpi.DataAcquireFailed.connect(function () {
+							alert("DataAcquireFailed");
+						});
+						Fpi.IdentifyCancelled.connect(function () {
+							alert("Identify Cancelled");
+						});
+
+						Fpi.SubjectDetected.connect(function () {
+							alert("Subject Detected");
+						});
+
+						Fpi.MatchComplete.connect(function () {
+							alert("MatchComplete");
+						});
+						Fpi.MatchFailed.connect(function () {
+							alert("MatchFailed");
+						});
+						Fpi.ResetComplete.connect(function () {
+							alert("ResetComplete");
+						});
+						Fpi.ResetFailed.connect(function () {
+							alert("ResetFailed");
+						});
+						Fpi.FingerMoved.connect(function () {
+							alert("FingerMoved");
+						});
+						Fpi.AcquireDataCancelled.connect(function () {
+							alert("AcquireDataCancelled");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+		function OpenConnection() {
+			Fpi.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+		//  独有的方法
+		var MatchData = new Array();
+
+		function SetServiceName() {
+			return FingerPrint.ServiceName = 'FingerPrint';
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MFpi-全方法属性</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn13" value="SetServiceName" onClick="alert(SetServiceName())"></input>
+	<input type="button" id="btn1" value="OpenConnection" onClick="Fpi.OpenConnection()"></input>
+	<input type="button" id="btn1" value="CloseConnection" onClick="Fpi.CloseConnection()"></input>
+
+	<br/>
+	<br/>
+	<input type="button" id="btn1" value="Identify" onClick="Fpi.Identify(60000)"></input>
+	<input type="button" id="btn1" value="CancelIdentify" onClick="Fpi.CancelIdentify()"></input>
+	<input type="button" id="btn1" value="AcquireData" onClick="Fpi.AcquireData(60000)"></input>
+	<input type="button" id="btn1" value="DataMatch" onClick="Fpi.DataMatch(60000,MatchData)"></input>
+	<input type="button" id="btn1" value="Reset" onClick="Fpi.Reset(60000)"></input>
+	<br/>
+	<br/>
+	<input type="button" id="btn1" value="MediaStatus" onClick="alert(Fpi.StMediaStatus)"></input>
+	<input type="button" id="btn1" value="StDetailedDeviceStatus" onClick="alert(Fpi.StDetailedDeviceStatus)"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

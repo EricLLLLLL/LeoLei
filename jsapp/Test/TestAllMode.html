@@ -1,0 +1,251 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+
+		.modes a {
+			display: inline-block;
+			width: 150px;
+			height: 50px;
+			font-size: 30px;
+			color: black;
+			/* background-color:red; */
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						// window.Dat = channel.objects.DAT;
+						window.Crd = channel.objects.MIDC;
+						window.Cim = channel.objects.MCIM;
+						window.Cdm = channel.objects.MCDM;
+						window.Fpi = channel.objects.MFPI;
+						window.Pin = channel.objects.MPIN;
+						window.Ptr = channel.objects.MRPT;
+						window.Idr = channel.objects.MIDR;
+						window.Siu = channel.objects.MSIU;
+						window.SCr = channel.objects.MSCR;
+
+						window.Jnl = channel.objects.MJNL;
+						window.Tcp = channel.objects.MTCP;
+						window.Sys = channel.objects.MSYS;
+						window.Tsl = channel.objects.MTSL;
+						window.Dat = channel.objects.MDAT;
+						window.Ime = channel.objects.MIME;
+
+						window.Ass = channel.objects.MASS;
+						window.Rpm = channel.objects.MRPM;
+						window.Fck = channel.objects.MFCK;
+
+
+
+
+						/* Crd.ConnectionOpened.connect(function () {
+							alert("连接打开回调");
+						}); */
+
+						// 旗舰版   ConnectionOpened OpenFailed
+						/* 	function ArrDevModeConnectionOpened(arrDevMode) {
+								for (var index = 0; index < arrDevMode.length; index++) {
+									var DevMode = arrDevMode[index];
+									console.log(DevMode);
+									DevMode.ConnectionOpened.connect(function (DevMode) {
+										alert("打开-硬件模块---：" + DevMode);
+									});
+
+									DevMode.OpenFailed.connect(function (DevMode) {
+										alert("打开-失败-硬件模块---：" + DevMode);
+									});
+
+								}
+							};
+							var arrDevModeS = [Crd, Pin, Ptr, Cim, Cdm, Idr, Fpi, Siu, Scr];
+							ArrDevModeConnectionOpened(arrDevModeS); */
+
+						Crd.ConnectionOpened.connect(function () {
+							alert("Crd ConnectionOpened");
+						});
+						Pin.ConnectionOpened.connect(function () {
+							alert("Pin ConnectionOpened");
+						});
+						Ptr.ConnectionOpened.connect(function () {
+							alert("Ptr ConnectionOpened");
+						});
+						Cim.ConnectionOpened.connect(function () {
+							alert("Cim ConnectionOpened");
+						});
+						Cdm.ConnectionOpened.connect(function () {
+							alert("Cdm ConnectionOpened");
+						});
+						Idr.ConnectionOpened.connect(function () {
+							alert("Idr ConnectionOpened");
+						});
+						Fpi.ConnectionOpened.connect(function () {
+							alert("Fpi ConnectionOpened");
+						});
+						Siu.ConnectionOpened.connect(function () {
+							alert("Siu ConnectionOpened");
+						});
+						Scr.ConnectionOpened.connect(function () {
+							alert("Scr ConnectionOpened");
+						});
+
+						// 事件
+						Crd.CardRead.connect(function () {
+							alert("CertRead");
+							//Crd.AcceptAndReadAvailableTracks("1,2,3", -1);
+						});
+
+						Jnl.TestEvent.connect(function () {
+							Test();
+						});
+
+						Sys.OpenFrontPageComplete.connect(function () {
+							alert("OpenFrontPageComplete");
+						});
+
+						Sys.OpenManagePageComplete.connect(function () {
+							alert("OpenManagePageComplete");
+						});
+
+
+						alert("init success");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+
+		}
+	</script>
+	<script language="JavaScript">
+		var gIndex = 0;
+
+		function SetMainProcess() {
+			console.log(SYS.SetMainProcessSync());
+		}
+
+		function SetServiceName() {
+			Crd.ServiceName = "CertRead";
+			Pin.ServiceName = "HMPIN";
+			Cim.ServiceName = "CIM";
+			Cdm.ServiceName = "CDM";
+			Siu.ServiceName = "HMSIU";
+			Fpi.ServiceName = "FingerPrint";
+			Scr.ServiceName = "BrushCard";
+			Idr.ServiceName = "CardReader";
+			Ptr.ServiceName = "HMMSI";
+		}
+
+		function Open() {
+			console.log(Crd.OpenConnection());
+			console.log(Pin.OpenConnection());
+			console.log(Cim.OpenConnection());
+			console.log(Cdm.OpenConnection());
+			console.log(Siu.OpenConnection());
+			console.log(Fpi.OpenConnection());
+			console.log(Scr.OpenConnection());
+			console.log(Idr.OpenConnection());
+			console.log(Ptr.OpenConnection());
+		}
+
+
+		function Execute() {
+
+			Idr.AcceptAndReadAvailableTracks("1,2,3", -1);
+
+
+		}
+
+		function Test() {
+			var ret = Jnl.WriteLogSync("test3", 0);
+			alert(ret);
+			alert("finish3");
+		}
+
+		function WriteLog() {
+			window.setTimeout(Test, 5000);
+
+			var ret = Jnl.WriteLogSync("test1", 0);
+
+			console.log(ret);
+
+			alert(ret);
+			//alert("finish1");
+
+		}
+
+		function OpenFront() {
+			console.log(SYS.OpenFrontPage());
+		}
+
+		function OpenManage() {
+			console.log(SYS.OpenManagePage());
+		}
+	</script>
+
+</head>
+
+<body>
+	<h3>Test All Mode</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+
+	<br>
+	<input type="button" value="SetMainProcess" onclick="SetMainProcess()" />
+
+	<input type="button" value="SetServiceName" onclick="SetServiceName()" />
+	<input type="button" value="OpenConnection" onclick="Open()" />
+	<input type="button" value="EnableStatusEvents" onclick="EnableStatusEvents()" />
+	<input type="button" value="AcceptAndReadAvailableTracks" onclick="Execute()" />
+
+	<br/>
+	<br/>
+	<input type="button" value="OpenFront" onclick="OpenFront()" />
+	<input type="button" value="OpenManage" onclick="OpenManage()" />
+	<br/>
+	<br/>
+	<input type="button" value="Write Log" onclick="WriteLog()" />
+	<p>--</p>
+	<input type="button" value="PrintSync" onclick="alert(Jnl.PrintSync('SelectDEP'))" />
+	<br/>
+	<br/>
+	<!-- <p>模块链接</p> -->
+	<div class="modes">
+		<a href="TestMCDM.html">MCDM</a>
+		<a href="TestMCIM.html">MCIM</a>
+		<a href="TestMCRD.html">MIDC</a>
+		<a href="TestMDAT.html">MDAT</a>
+		<a href="TestMFPI.html">MFPI</a>
+
+		<a href="TestMIDR.html">MIDR</a>
+		<a href="TestMIME.html">MIME</a>
+		<a href="TestMPIN.html">MPIN</a>
+		<a href="TestMPTR.html">MPRT</a>
+		<a href="TestMSCR.html">MSCR</a>
+		<a href="TestMSIU.html">MSIU</a>
+		<a href="TestMSYS.html">MSYS</a>
+		<a href="TestMTCP.html">MTCP</a>
+		<a href="TestMTSL.html">MTSL</a>
+
+	</div>
+
+</body>
+
+</html>

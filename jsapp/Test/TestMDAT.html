@@ -1,0 +1,157 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+			html {
+				height: 100%;
+				width: 100%;
+			}
+	
+			body {
+				height: 100%;
+				width: 100%;
+				text-align: center;
+			}
+		</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Dat = channel.objects.MDATA;
+						alert("init success.");
+						Dat.ConnectionOpened.connect(function () {
+							alert("连接Dat打开回调");
+						});
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+
+		}
+
+		function SetServiceName() {
+			return Dat.ServiceName = "DAT";
+		}
+
+		function GetServiceName() {
+			return Dat.ServiceName;
+		}
+		// Dat 方法
+		function AddPersistentData() {
+			Dat.AddPersistentData("TestData", "String", "", function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function GetPersistentData() {
+			Dat.GetPersistentData("TestData", "String", function (strRet) {
+				alert(strRet);
+			});
+		}
+
+		function SetPersistentData() {
+			Dat.SetPersistentData("TestData", "String", "", function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function GetDataSync() {
+			Dat.GetDataSync("TestData", "String", function (strRet) {
+				alert(strRet);
+			});
+		}
+
+		function SetDataSync() {
+			Dat.SetDataSync("TestData", "String", "", function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function GetPersistentDataSync() {
+			Dat.GetPersistentDataSync("TestData", "String", function (strRet) {
+				alert(strRet);
+			});
+		}
+
+		function SetPersistentDataSync() {
+			Dat.SetPersistentDataSync("TestData", "String", "", function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function GetPrivateProfileSync() { //Default 默认值   FileName绝对路径 TCR_CUSTOMIZE.INI  top.API.gIniFileName
+			Dat.GetPrivateProfileSync("TestData", "KeyName", "0", "c:\\TCR\\jsapp\\ini\\TCR_CUSTOMIZE.INI", function (strRet) {
+				alert(strRet);
+			});
+		}
+
+		function WritePrivateProfileSync() {
+			Dat.WritePrivateProfileSync("TestData", "KeyName", "1", "c:\\TCR\\jsapp\\ini\\TCR_CUSTOMIZE.INI", function (iRetCode) {
+				alert(iRetCode);
+			});
+		}
+
+		function InitDatasSync() {
+			Dat.InitDatasSync(function () {
+				alert("InitDatasSync");
+			});
+		};
+	</script>
+</head>
+
+<body>
+	<!-- Dat  方法  -->
+	<h3>MDAT</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<input type="button" id="btn13" value="SetServiceName" onClick="alert(SetServiceName())"></input>
+	<input type="button" id="btn2" value="GetServiceName" onClick="alert(Idc.ServiceName)"></input>
+	<br>
+	<input type="button" id="DatBtn1" value="AddPersistentData" onClick="AddPersistentData()"></input>
+	<input type="button" id="DatBtn2" value="GetPersistentData" onClick="GetPersistentData()"></input>
+	<input type="button" id="DatBtn3" value="SetPersistentData" onClick="SetPersistentData()"></input>
+	<input type="button" id="DatBtn4" value="GetDataSync" onClick="GetDataSync()"></input>
+	<input type="button" id="DatBtn5" value="SetDataSync" onClick="SetDataSync()"></input>
+	<input type="button" id="DatBtn6" value="GetPersistentDataSync" onClick="GetPersistentDataSync()"></input>
+	<input type="button" id="DatBtn7" value="SetPersistentDataSync" onClick="SetPersistentDataSync()"></input>
+	<input type="button" id="DatBtn8" value="GetPrivateProfileSync" onClick="GetPrivateProfileSync()"></input>
+	<input type="button" id="DatBtn9" value="WritePrivateProfileSync" onClick="WritePrivateProfileSync()"></input>
+	<input type="button" id="DatBtn10" value="InitDatasSync" onClick="InitDatasSync()"></input>
+	<p>--</p>
+	<input type="button" id="DatBtn10" value="GetQRCodePic" onClick="alert(GetQRCodePic())"></input>
+	<input type="button" id="DatBtn10" value="GetMD5Data" onClick="alert(GetMD5Data())"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+<script language="javascript">
+	// Dat 事件
+	Dat.AddPersistentDataComplete.connect(function (strDataName) {
+		alert("AddPersistentDataComplete,回调参数strDataName=" + strDataName);
+	});
+
+	Dat.GetPersistentDataComplete.connect(function (strDataName, strDataType, strValue) {
+		alert("GetPersistentDataComplete,回调参数strDataName=" + strDataName + "  strDataType=" + strDataType +
+			"  strValue=" + strValue);
+	});
+	Dat.SetPersistentDataComplete.connect(function (strDataName) {
+		alert("SetPersistentDataComplete,回调参数strDataName=" + strDataName);
+	});
+	Dat.AddPersistentDataError.connect(function (strDataName, shortErrorCode) {
+		alert("AddPersistentDataComplete,回调参数strDataName=" + strDataName + "shortErrorCode" + shortErrorCode);
+	});
+	Dat.GetPersistentDataError.connect(function (strDataName, shortErrorCode) {
+		alert("GetPersistentDataError,回调参数strDataName=" + strDataName + "shortErrorCode" + shortErrorCode);
+	});
+	Dat.SetPersistentDataError.connect(function (strDataName, shortErrorCode) {
+		alert("SetPersistentDataError,回调参数strDataName=" + strDataName + "shortErrorCode" + shortErrorCode);
+	});
+</script>
+
+</html>

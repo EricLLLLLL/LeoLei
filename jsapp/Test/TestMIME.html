@@ -1,0 +1,106 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../qwebchannel.js"></script>
+	<script type="text/javascript" src="../Api/API.js"></script>
+	<script language="javascript">
+		function Initialize() {
+			if (typeof qt != 'undefined') {
+				if (typeof qt.webChannelTransport != 'undefined') {
+					new QWebChannel(qt.webChannelTransport, function (channel) {
+						window.Ime = channel.objects.MIME;
+						// 打开 成功失败 事件
+					/* 	Ime.ConnectionOpened.connect(function () {
+							alert("连接打开回调-ConnectionOpened");
+						});
+						Ime.OpenFailed.connect(function () {
+							alert("失败-OpenFailed");
+						}); */
+						// 事件
+						Ime.ConnectionOpened.connect(function () {
+							alert("ConnectionOpened!");
+						});
+
+						Ime.ConnectionClosed.connect(function () {
+							alert("ConnectionClosed!");
+						});
+
+						Ime.ShowIMECompleted.connect(function () {
+							alert("ShowIMECompleted!");
+						});
+
+						Ime.ShowIMEFailed.connect(function () {
+							alert("ShowIMEFailed!");
+						});
+
+						Ime.HideIMECompleted.connect(function () {
+							alert("HideIMECompleted!");
+						});
+
+						Ime.HideIMEFailed.connect(function () {
+							alert("HideIMEFailed!");
+						});
+
+						Ime.SetIMEPosCompleted.connect(function () {
+							alert("SetIMEPosCompleted!");
+						});
+
+						Ime.SetIMEPosFailed.connect(function () {
+							alert("SetIMEPosFailed!");
+						});
+
+						Ime.InputResult.connect(function (type, value) {
+							alert("InputResult: " + "( type: " + type + ", value: " + value + " )");
+						});
+
+						alert("init success.");
+					});
+				} else {
+					alert("qt.webChannelTransport off");
+				}
+			} else {
+				alert("qt off");
+			}
+		}
+		//  共有的方法
+/* 		function OpenConnection() {
+			Ime.OpenConnection(function (iRetCode) {
+				alert(iRetCode);
+			});
+		} */
+		//  独有的方法
+		function SetIMEPos() {
+			Ime.SetIMEPos(100, 200);
+		}
+	</script>
+</head>
+
+<body>
+	<h3>MIme</h3>
+	<input type="button" id="btn1" value="Init" onClick="Initialize()"></input>
+	<!-- <input type="button" id="btn2" value="OpenConnection" onClick="OpenConnection()"></input> -->
+	<br/>
+	<input type="button" id="btn2" value="show1 字母键盘" onClick="alert(Ime.ShowIME('1', '', ''))"></input>
+	<input type="button" id="btn2" value="show0 手写键盘" onClick="alert(Ime.ShowIME('0', '', ''))"></input>
+	<input type="button" id="btn2" value="show3 数字键盘" onClick="alert(Ime.ShowIME('3', '', ''))"></input>
+	<input type="button" id="btn3" value="HideIME" onClick="alert(Ime.HideIME(''))"></input>
+	<input type="button" id="btn4" value="SetIMEPos" onClick="SetIMEPos()"></input>
+	<br/>
+	<br/>
+	<a href="JavaScript:history.go(-1)">TesAllMode</a>
+</body>
+
+</html>

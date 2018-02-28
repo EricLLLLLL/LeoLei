@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="PageContent" autogenerate_time="12/7/2015 4:26:25 PM">
+	<div id="PageTop">
+    <div id="ShowTime"></div>
+  </div>
+	<div id="PageSubject">
+    <div class="AgreementDiv">
+		<div style="font-family:SimHei;text-align:center;color:#000;margin-top:100px;font-size:30px;font-weight:bold;">温馨提示</div>
+
+		<p style="line-height: 200%;text-align:left;color:#000;margin-top:20px;font-family:simHei;font-size:15px;margin-left:40px;">
+			1、	办理业务前，请留意查看自助设备插卡口、出钞口、键盘及机器其它部位是否加装或粘贴异物，注意周围是否有可疑人员。<br/>
+			2、切勿轻信手机短信中银行卡交易或中奖等信息，切勿拨打粘贴在自助设备上除95599外的任何联系电话，警惕不发分子利用自助设备进行诈骗。<br/>
+			3、输入密码时应快速并尽量用手遮挡，以防不法分子窥视。请不要向他人透漏您的密码。<br/>
+			4、在交易过程中请不要离开自助设备，尽量避免他人吸引注意力。交易完成后，应及时退出系统并取回银行卡。<br/>
+			5、办理业务时，如果设备吞卡或未吐钞，请尽快联系营业机构人员或拨打95599客户服务电话。
+		</p>
+		<p style="line-height: 200%;text-align:left;color:#000;margin-top:6px;font-family:simHei Regular;font-size:14px;margin-left:40px;">
+
+			1.Before the transaction,please check the card slot,cash slot,keyboard and other parts of the ATM carefully to see if there is any<br/>
+			unidentified object installed or taped on the machine,or any suspicious persons around you.<br/>
+			2.Please be vigilant against text messages on transactions or award wining and never call the contact numbers taped on the machine<br/>
+			except for the Customer Service 95599 to avoid fraud.<br/>
+			3.Please enter the password quickly,better to be covered by your hand,to avoid peeks of intentional lawbreakers.Please do not tell <br/>
+			your password to the others. <br/>
+			4.During the transaction,please do not leave the machine and avoid attracting attentions of other persons.After the transaction,<br/>
+			please exit the system and withdraw your card as soon as possible.<br/>
+			5.During the transact business,if the card or cash is retained by the machine,please contact the staff of the outlet or call the Customer<br/>
+			Service 95599 immediately.
+		</p>
+
+
+
+	</div>
+	</div>
+	<div id="PageButton">
+		<a href="#" class="Left_4" id="Exit">取消</a>
+		<a href="#" class="Right_4" id="OK">确定</a>
+	</div>
+</div>
